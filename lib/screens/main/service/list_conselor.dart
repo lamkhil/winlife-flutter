@@ -4,7 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:winlife/constant/color.dart';
-import 'package:winlife/screens/service/detail_conselor.dart';
+import 'package:winlife/screens/main/service/detail_conselor.dart';
 
 class ListConselor extends StatefulWidget {
   var id_layanan;

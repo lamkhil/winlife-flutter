@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/data/model/category_model.dart';
-import 'package:winlife/screens/service/list_conselor.dart';
+import 'package:winlife/screens/main/service/list_conselor.dart';
 
 class FrameHome extends StatefulWidget {
   const FrameHome({Key? key}) : super(key: key);
