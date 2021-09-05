@@ -8,4 +8,5 @@ abstract class Routes {
   static const MAIN = '/main';
   static const LANDING = '/landing';
   static const OTP = '/otp';
+  static const WEBVIEW = '/webview';
 }

@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,
                   child: Text(
-                    "Login ",
+                    'login'.tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: "NeoSansBold", fontSize: 25),
                   )),
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                           padding: const EdgeInsets.only(left: 5, right: 10),
                           width: double.infinity,
                           child: Text(
-                            "PASSWORD",
+                            "PASSWORD".tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontFamily: "mulilight", fontSize: 12),
@@ -139,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                             }
                           },
                           color: mainColor,
-                          child: Text('CONTINUE',
+                          child: Text('CONTINUE'.tr,
                               style: TextStyle(
                                   fontSize: 15,
                                   color: Colors.white,
@@ -162,14 +162,14 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Don\'t have an Account? ',
+                            'no akun'.tr + ' ',
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
                                 fontFamily: 'muli'),
                           ),
                           Text(
-                            'Register Here',
+                            'register'.tr + ' ' + 'here'.tr,
                             style: TextStyle(
                                 fontSize: 15,
                                 color: mainColor,
@@ -192,7 +192,7 @@ class _LoginPageState extends State<LoginPage> {
                           Get.toNamed(Routes.FORGETPASSWORD);
                         },
                         child: Text(
-                          "Forgot your password ? ",
+                          "forgot".tr,
                           style: TextStyle(
                               fontFamily: 'mulibold', color: mainColor),
                         ),

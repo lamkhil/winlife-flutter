@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/auth_controller.dart';
 import 'package:winlife/routes/app_routes.dart';
+import 'package:winlife/setting/language.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -16,6 +18,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   AuthController _authController = Get.find();
   SolidController _controller = SolidController();
+  final storage = GetStorage();
 
   var isOpen = false.obs;
 
@@ -26,6 +29,12 @@ class _LandingPageState extends State<LandingPage> {
       isOpen.value = _controller.isOpened;
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   List lang = [
@@ -48,8 +57,6 @@ class _LandingPageState extends State<LandingPage> {
       ),
     ),
   ];
-
-  var selectIndex = 0.obs;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +84,8 @@ class _LandingPageState extends State<LandingPage> {
                                       ? _controller.hide()
                                       : _controller.show();
                                 },
-                                child: Obx(() => lang[selectIndex.value]))
+                                child: Obx(() => lang[
+                                    _authController.selectIndexLang.value]))
                           ],
                         ),
                       ),
@@ -103,7 +111,7 @@ class _LandingPageState extends State<LandingPage> {
                       padding: const EdgeInsets.only(left: 0, right: 10),
                       width: double.infinity,
                       child: Text(
-                        "Welcome To WinLife",
+                        'welcome'.tr,
                         textAlign: TextAlign.left,
                         style:
                             TextStyle(fontFamily: "NeoSansBold", fontSize: 25),
@@ -113,7 +121,7 @@ class _LandingPageState extends State<LandingPage> {
                       padding: const EdgeInsets.only(left: 0, right: 10),
                       margin: const EdgeInsets.only(top: 10, bottom: 20),
                       child: Text(
-                        "We help you to find solution for yout problem,\nbecause you are valueable & more than winner!",
+                        'welcome sub'.tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(fontFamily: "MuliLight", fontSize: 14),
                       )),
@@ -127,7 +135,7 @@ class _LandingPageState extends State<LandingPage> {
                             height: 40,
                             margin: const EdgeInsets.only(top: 10, right: 4),
                             child: TextButton(
-                                child: Text("Login",
+                                child: Text('login'.tr,
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black,
@@ -154,7 +162,7 @@ class _LandingPageState extends State<LandingPage> {
                             height: 40,
                             margin: const EdgeInsets.only(top: 10, right: 4),
                             child: TextButton(
-                                child: Text("Register",
+                                child: Text('register'.tr,
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,
@@ -191,7 +199,7 @@ class _LandingPageState extends State<LandingPage> {
                         Container(
                           margin: const EdgeInsets.only(right: 10, left: 10),
                           child: Text(
-                            "or continue with",
+                            "or continue with".tr,
                             style: TextStyle(color: Colors.grey),
                           ),
                         ),
@@ -219,7 +227,7 @@ class _LandingPageState extends State<LandingPage> {
                                 size: 20,
                               ),
                             ),
-                            Text("Continue With Facebook",
+                            Text("facebook".tr,
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.black,
@@ -254,7 +262,7 @@ class _LandingPageState extends State<LandingPage> {
                                 size: 20,
                               ),
                             ),
-                            Text("Continue With Google",
+                            Text("google".tr,
                                 style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.black,
@@ -280,14 +288,16 @@ class _LandingPageState extends State<LandingPage> {
                       children: [
                         Expanded(
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Container(
                                 width: double.infinity,
                                 padding: const EdgeInsets.only(
                                     right: 10, left: 0, top: 0, bottom: 5),
                                 child: Text(
-                                  'By Logging in or Registering, you agree to WinLife',
-                                  textAlign: TextAlign.left,
+                                  'byLogin'.tr,
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'muli', fontSize: 14),
                                 ),
@@ -296,19 +306,16 @@ class _LandingPageState extends State<LandingPage> {
                                 padding:
                                     const EdgeInsets.only(left: 0, right: 10),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //   context,
-                                        //   new MaterialPageRoute(
-                                        //       builder: (context) => new HtmlView(
-                                        //           "Syarat ketentuan", "ketentuanlayanan")),
-                                        // );
+                                        Get.toNamed(Routes.WEBVIEW,
+                                            arguments:
+                                                "https://www.termsandcondiitionssample.com/live.php?token=CpsMXwAFpKwPo3uIMxalgajPTR8K4Iqc");
                                       },
                                       child: Text(
-                                        'Terms of Service',
+                                        'terms'.tr,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontFamily: 'MuliBold',
@@ -317,7 +324,7 @@ class _LandingPageState extends State<LandingPage> {
                                       ),
                                     ),
                                     Text(
-                                      'And ',
+                                      'and'.tr,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontFamily: 'MuliLight',
@@ -333,7 +340,7 @@ class _LandingPageState extends State<LandingPage> {
                                         // );
                                       },
                                       child: Text(
-                                        'Privacy Policy ',
+                                        'privacy'.tr,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontFamily: 'MuliBold',
@@ -375,7 +382,7 @@ class _LandingPageState extends State<LandingPage> {
                 height: 12,
               ),
               Text(
-                "Pilih bahasa anda",
+                "Pilih bahasa".tr,
                 textAlign: TextAlign.left,
                 style: TextStyle(fontFamily: "NeoSansBold", fontSize: 16),
               ),
@@ -385,7 +392,9 @@ class _LandingPageState extends State<LandingPage> {
               ListTile(
                 onTap: () {
                   _controller.hide();
-                  selectIndex.value = 0;
+                  _authController.selectIndexLang.value = 0;
+                  LanguageService.changeLocale('id');
+                  storage.write('lang', 'id');
                 },
                 leading: Container(
                   padding: EdgeInsets.all(10),
@@ -404,8 +413,9 @@ class _LandingPageState extends State<LandingPage> {
                   () => Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          color:
-                              selectIndex.value == 0 ? mainColor : Colors.grey,
+                          color: _authController.selectIndexLang.value == 0
+                              ? mainColor
+                              : Colors.grey,
                           shape: BoxShape.circle),
                       child: Icon(
                         Icons.check,
@@ -420,7 +430,9 @@ class _LandingPageState extends State<LandingPage> {
               ListTile(
                 onTap: () {
                   _controller.hide();
-                  selectIndex.value = 1;
+                  _authController.selectIndexLang.value = 1;
+                  LanguageService.changeLocale('en');
+                  storage.write('lang', 'en');
                 },
                 leading: Container(
                   padding: EdgeInsets.all(10),
@@ -439,8 +451,9 @@ class _LandingPageState extends State<LandingPage> {
                   () => Container(
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          color:
-                              selectIndex.value == 1 ? mainColor : Colors.grey,
+                          color: _authController.selectIndexLang.value == 1
+                              ? mainColor
+                              : Colors.grey,
                           shape: BoxShape.circle),
                       child: Icon(
                         Icons.check,

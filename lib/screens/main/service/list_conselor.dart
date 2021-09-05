@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:winlife/controller/main_controller.dart';
+import 'package:winlife/data/model/conselor_model.dart';
 import 'package:winlife/screens/main/service/detail_conselor.dart';
 
 class ListConselor extends StatefulWidget {
@@ -19,10 +22,12 @@ class _ListConselorState extends State<ListConselor> {
   bool loaded = false;
 
   Future<void> _refresh() async {
-    //_restsend();
+    await _mainController.getAllConselor();
   }
 
   void Consulnow(type, data) {}
+
+  final MainController _mainController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -44,74 +49,20 @@ class _ListConselorState extends State<ListConselor> {
         body: SafeArea(
             child: RefreshIndicator(
           onRefresh: _refresh,
-          child: !loaded
-              ? Center(
-                  child: SpinKitFadingCircle(
-                    color: mainColor,
-                  ),
-                )
-              : response['code'] != "200"
-                  ? Container(
-                      color: Colors.white,
-                      padding: const EdgeInsets.all(10),
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: MediaQuery.of(context).size.height,
-                        ),
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Center(
-                                child: Container(
-                                  width: 300,
-                                  child: Image.asset("assets/icon_empty.png"),
-                                ),
-                              ),
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                child: Text(
-                                  response['message'],
-                                  style: TextStyle(
-                                      fontFamily: "neosansbold", fontSize: 20),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  _refresh();
-                                },
-                                child: Container(
-                                    padding: const EdgeInsets.all(10),
-                                    child: Text("Reload")),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-                  : Container(
-                      padding: const EdgeInsets.all(10),
-                      child: SingleChildScrollView(
-                        child: ConstrainedBox(
-                          constraints: new BoxConstraints(
-                            minHeight: MediaQuery.of(context).size.height,
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              for (int i = 0;
-                                  i < response['data'].length;
-                                  i++) ...{
-                                exploreview(context, response['data'][i]),
-                              }
-                            ],
-                          ),
-                        ),
-                      )),
+          child: Container(
+              padding: const EdgeInsets.all(10),
+              child: Obx(() {
+                return ListView.builder(
+                    itemCount: _mainController.listConselor.length,
+                    itemBuilder: (context, i) {
+                      return exploreview(
+                          context, _mainController.listConselor[i]);
+                    });
+              })),
         )));
   }
 
-  Widget exploreview(BuildContext context, data) {
+  Widget exploreview(BuildContext context, Conselor data) {
     return Stack(
       children: [
         Container(
@@ -150,19 +101,17 @@ class _ListConselorState extends State<ListConselor> {
                               height: 12,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: data['data7'] == "1"
-                                    ? Colors.green
-                                    : Colors.grey,
+                                color: "1" == "1" ? Colors.green : Colors.grey,
                               ),
                             ),
-                            Text(data['data2'].toString(),
+                            Text(data.name,
                                 style: TextStyle(
                                     fontFamily: 'neosansbold', fontSize: 18)),
                           ],
                         ),
                         Container(
                           margin: const EdgeInsets.only(top: 4),
-                          child: Text(data['data3'].toString()),
+                          child: Text(data.email),
                         ),
                         Container(
                             margin: const EdgeInsets.only(top: 4),
@@ -292,7 +241,7 @@ class _ListConselorState extends State<ListConselor> {
             child: OpenContainer(
               closedBuilder: (_, openContainer) {
                 return Image.network(
-                  data['data5'].toString(),
+                  "http://web-test.winlife.id:80/uploads/konselor/20210905203938-2021-09-05konselor203931.jpg",
                 );
               },
               openColor: Colors.white,
@@ -302,8 +251,7 @@ class _ListConselorState extends State<ListConselor> {
               ),
               closedColor: Colors.white,
               openBuilder: (_, closeContainer) {
-                return new DetailConselor(
-                    data['data1'].toString(), "widget.id_layanan");
+                return new DetailConselor(data.id, "widget.id_layanan");
               },
             ),
           ),

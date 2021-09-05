@@ -25,6 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   var _obscureText = true.obs;
   String strangepass = '';
+  bool strangeAgree = false;
   var strength = 0.0.obs;
   var agree = false.obs;
 
@@ -33,6 +34,24 @@ class _RegisterPageState extends State<RegisterPage> {
     // TODO: implement initState
     co_password.addListener(textListener);
     super.initState();
+  }
+
+  bool validateUpperCase(String value) {
+    String pattern = '[A-Z]';
+    RegExp regExp = new RegExp(pattern);
+    return regExp.hasMatch(value);
+  }
+
+  bool validateLowerCase(String value) {
+    String pattern = '[a-z]';
+    RegExp regExp = new RegExp(pattern);
+    return regExp.hasMatch(value);
+  }
+
+  bool validateSpecialCharacter(String value) {
+    String pattern = '[^A-Za-z]';
+    RegExp regExp = new RegExp(pattern);
+    return regExp.hasMatch(value);
   }
 
   @override
@@ -55,10 +74,19 @@ class _RegisterPageState extends State<RegisterPage> {
 
     print('Please enter a password:' + strength.toString());
     // Print a response
-    if (strength < 0.3) {
+    if (!validateUpperCase(co_password.text)) {
+      strangepass = 'Minimum 1 upper case';
+      strength.value = 0.2;
+    } else if (!validateLowerCase(co_password.text)) {
+      strangepass = 'Minimum 1 lower case';
+      strength.value = 0.2;
+    } else if (!validateSpecialCharacter(co_password.text)) {
+      strangepass = 'Minimum 1 Special Character or Numeric Number';
+      strength.value = 0.2;
+    } else if (strength < 0.3) {
       strangepass = 'This password is weak!';
     } else if (strength < 0.7) {
-      strangepass = 'This password is strong!';
+      strangepass = 'This passsword is strong!';
     } else {
       strangepass = 'This passsword is strong!';
     }
@@ -91,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   width: double.infinity,
                   child: Text(
-                    "Register ",
+                    "register".tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: "NeoSansBold", fontSize: 25),
                   )),
@@ -100,7 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.only(left: 5, right: 10),
                   width: double.infinity,
                   child: Text(
-                    "NAME ",
+                    "NAME".tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: "mulilight", fontSize: 12),
                   )),
@@ -127,7 +155,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.only(left: 5, right: 10),
                   width: double.infinity,
                   child: Text(
-                    "MOBILE NUMBER ",
+                    "MOBILE NUMBER".tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: "mulilight", fontSize: 12),
                   )),
@@ -192,7 +220,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.only(left: 5, right: 10),
                   width: double.infinity,
                   child: Text(
-                    "PASSWORD",
+                    "PASSWORD".tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(fontFamily: "mulilight", fontSize: 12),
                   )),
@@ -267,7 +295,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             padding: const EdgeInsets.only(
                                 right: 10, left: 0, top: 0, bottom: 5),
                             child: Text(
-                              'By Logging in or Registering, you agree to WinLife',
+                              'byLogin'.tr,
                               textAlign: TextAlign.left,
                               style:
                                   TextStyle(fontFamily: 'muli', fontSize: 14),
@@ -288,7 +316,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     // );
                                   },
                                   child: Text(
-                                    'Terms of Service',
+                                    'terms'.tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontFamily: 'MuliBold',
@@ -297,7 +325,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   ),
                                 ),
                                 Text(
-                                  'And ',
+                                  'and'.tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'MuliLight', fontSize: 14),
@@ -312,7 +340,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     // );
                                   },
                                   child: Text(
-                                    'Privacy Policy ',
+                                    'privacy'.tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontFamily: 'MuliBold',
@@ -361,7 +389,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   }
                                 : null,
                             color: mainColor,
-                            child: Text('REGISTER',
+                            child: Text('REGISTER'.tr,
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.white,
@@ -385,14 +413,14 @@ class _RegisterPageState extends State<RegisterPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Already have an Account? ',
+                            'already'.tr,
                             style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.grey,
                                 fontFamily: 'muli'),
                           ),
                           Text(
-                            'Login Here',
+                            'login'.tr + " " + 'here'.tr,
                             style: TextStyle(
                                 fontSize: 15,
                                 color: mainColor,

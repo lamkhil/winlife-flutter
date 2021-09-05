@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:winlife/controller/auth_controller.dart';
 import 'package:winlife/routes/app_routes.dart';
+import 'package:winlife/setting/language.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -28,7 +29,17 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigatePage() async {
-    var user = storage.read('user');
+    var user = await storage.read('user');
+    var lang = await storage.read('lang');
+    print(lang);
+    if (lang != null) {
+      if (lang == 'id') {
+        _authController.selectIndexLang.value = 0;
+      } else {
+        _authController.selectIndexLang.value = 1;
+      }
+      LanguageService.changeLocale(lang);
+    }
     if (user == null) {
       Get.offNamed(Routes.LANDING);
     } else {

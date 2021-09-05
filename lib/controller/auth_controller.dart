@@ -13,6 +13,12 @@ import 'package:winlife/screens/widget/dialog.dart';
 import 'package:winlife/screens/widget/loader_dialog.dart';
 
 class AuthController extends GetxController {
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+  }
+
+  var selectIndexLang = 0.obs;
   final storage = GetStorage();
   final _user = Rx<UserData>(UserData.initial());
   UserData get user => _user.value;
