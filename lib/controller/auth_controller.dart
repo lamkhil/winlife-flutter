@@ -8,9 +8,9 @@ import 'package:winlife/constant/color.dart';
 import 'package:winlife/data/model/user_model.dart';
 import 'package:winlife/data/provider/http_service.dart';
 import 'package:winlife/routes/app_routes.dart';
-import 'package:winlife/widget/dialog.dart';
-import 'package:winlife/widget/loader_dialog.dart';
 import 'package:email_auth/email_auth.dart';
+import 'package:winlife/screens/widget/dialog.dart';
+import 'package:winlife/screens/widget/loader_dialog.dart';
 
 class AuthController extends GetxController {
   final storage = GetStorage();
@@ -23,9 +23,11 @@ class AuthController extends GetxController {
       {bool socialRegis = false}) async {
     if (name == '' || password == '' || mobileNumber == '' || email == '') {
       customDialog(context, "Oops!", 'Form tidak boleh kosong');
+    } else if (!GetUtils.isEmail(email)) {
+      customDialog(context, "Oops!", 'Format email salah');
     } else if (strengt < 0.3) {
       customDialog(context, "Oops!", 'Password lemah');
-    } else if (GetUtils.isNumericOnly(mobileNumber)) {
+    } else if (!GetUtils.isNum(mobileNumber)) {
       customDialog(context, "Oops!", 'Nomor telepon tidak sesuai');
     } else {
       loaderDialog(
@@ -36,17 +38,19 @@ class AuthController extends GetxController {
           "Please Wait");
       var result =
           await HttpService.register(name, email, password, mobileNumber);
-      if (result['status']) {
-        Navigator.pop(Get.overlayContext!);
-        if (socialRegis) {
-          Get.offAllNamed(Routes.MAIN);
+
+      Navigator.pop(Get.overlayContext!);
+      if (result != null) {
+        if (result['status']) {
+          if (socialRegis) {
+            Get.offAllNamed(Routes.MAIN);
+          } else {
+            Get.offNamed(Routes.OTP,
+                arguments: {'email': email, 'password': password});
+          }
         } else {
-          Get.offNamed(Routes.OTP,
-              arguments: {'email': email, 'password': password});
+          customDialog(context, "Oops!", result['message']);
         }
-      } else {
-        Navigator.pop(Get.overlayContext!);
-        customDialog(context, "Oops!", result['message']);
       }
     }
   }

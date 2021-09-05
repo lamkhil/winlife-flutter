@@ -7,20 +7,25 @@ import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
 class HttpService {
+  //AUTH =======================================================================
   static Future<dynamic> register(
       String name, String email, String password, String mobileNumber) async {
-    String url = Api.REGISTER;
+    try {
+      String url = Api.REGISTER;
 
-    final res = await http.post(Uri.parse(url), body: {
-      "email": email,
-      "password": password,
-      "mobile_number": mobileNumber,
-      "name": name
-    }, headers: {
-      "x-api-key": Api.API_KEY,
-    });
-    final result = await compute(convert.jsonDecode, res.body);
-    return result;
+      final res = await http.post(Uri.parse(url), body: {
+        "email": email,
+        "password": password,
+        "mobile_number": mobileNumber,
+        "name": name
+      }, headers: {
+        "x-api-key": Api.API_KEY,
+      });
+      final result = await compute(convert.jsonDecode, res.body);
+      return result;
+    } catch (e) {
+      return null;
+    }
   }
 
   static Future<dynamic> login(String email, String password) async {
@@ -69,5 +74,21 @@ class HttpService {
       return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
     }
     return null;
+  }
+
+  //HOME =======================================================================
+
+  static Future<dynamic> getAllKategori() async {
+    try {
+      String url = Api.KATEGORI;
+
+      final res = await http.get(Uri.parse(url), headers: {
+        "x-api-key": Api.API_KEY,
+      });
+      final result = await compute(convert.jsonDecode, res.body);
+      return result;
+    } catch (e) {
+      return null;
+    }
   }
 }

@@ -34,7 +34,7 @@ class _FrameHomeState extends State<FrameHome> {
   List<CategoryItem> categoryItems = [
     CategoryItem(
       "datanya[i]['id']",
-      "datanya[i]['fav']" == "1" ? true : false,
+      "datanya[i]['fav']",
       "datanya[i]['image']",
       "datanya[i]['name']",
     ),
@@ -47,7 +47,7 @@ class _FrameHomeState extends State<FrameHome> {
       categoryItems.add(
         CategoryItem(
           "datanya[i]['id']",
-          "datanya[i]['fav']" == "1" ? true : false,
+          "datanya[i]['fav']",
           "datanya[i]['image']",
           "datanya[i]['name']",
         ),

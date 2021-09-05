@@ -32,12 +32,8 @@ class _FrameQuickState extends State<FrameQuick> {
     setState(() {
       for (int i = 0; i < 8; i++) {
         categoryItems.add(
-          CategoryItem(
-            "datanya[i]['id']",
-            "1" == "1" ? true : false,
-            "datanya[i]['image']",
-            "datanya[i]['name']",
-          ),
+          CategoryItem("datanya[i]['id']", "datanya[i]['image']",
+              "datanya[i]['name']", ""),
         );
       }
     });

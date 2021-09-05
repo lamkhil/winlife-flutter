@@ -1,5 +1,5 @@
 class Api {
-  static const String _baseUrl = 'http://194.31.53.120/api/';
+  static const String _baseUrl = 'http://web-test.winlife.id/api/';
   static const String API_KEY = 'EBD19D22637AFD0BC40DE7B0A8F44E09';
 
 //auth

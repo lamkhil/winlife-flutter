@@ -1,11 +1,11 @@
 class CategoryItem {
   String id;
   String image;
-  bool isfav;
   String name;
+  String detail;
   CategoryItem(
     this.id,
-    this.isfav,
+    this.detail,
     this.image,
     this.name,
   );
