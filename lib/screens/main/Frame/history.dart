@@ -35,7 +35,7 @@ class _FrameHistoryState extends State<FrameHistory> {
           child: Container(
               color: Colors.white,
               padding: const EdgeInsets.all(10),
-              child: false
+              child: true
                   ? ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height,
@@ -54,7 +54,7 @@ class _FrameHistoryState extends State<FrameHistory> {
                             Container(
                               padding: const EdgeInsets.all(10),
                               child: Text(
-                                "response['message']",
+                                "Empty",
                                 style: TextStyle(
                                     fontFamily: "neosansbold", fontSize: 20),
                               ),

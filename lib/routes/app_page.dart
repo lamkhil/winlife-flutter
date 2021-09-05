@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:winlife/bindings/auth_binding.dart';
+import 'package:winlife/bindings/main_binding.dart';
 import 'package:winlife/routes/app_routes.dart';
 import 'package:winlife/screens/auth/landingpage.dart';
 import 'package:winlife/screens/auth/lupapassword.dart';
@@ -42,8 +42,8 @@ class AppPages {
       page: () => LupaPasswordPage(),
     ),
     GetPage(
-      name: Routes.MAIN,
-      page: () => DashboardPage(),
-    ),
+        name: Routes.MAIN,
+        page: () => DashboardPage(),
+        binding: MainBindings()),
   ];
 }

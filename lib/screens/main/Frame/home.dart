@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:winlife/controller/main_controller.dart';
 import 'package:winlife/data/model/category_model.dart';
 import 'package:winlife/screens/main/service/list_conselor.dart';
 
@@ -13,67 +16,11 @@ class FrameHome extends StatefulWidget {
 }
 
 class _FrameHomeState extends State<FrameHome> {
-  List<CategoryItem2> categoryItemsfav = [
-    CategoryItem2(
-      0,
-      "datanya[i]['id']",
-      "datanya[i]['fav']" == "1" ? true : false,
-      "datanya[i]['image']",
-      "datanya[i]['name']",
-    ),
-  ];
-  List<CategoryItem2> categoryItemsnonfav = [
-    CategoryItem2(
-      0,
-      "datanya[i]['id']",
-      "datanya[i]['fav']" == "1" ? true : false,
-      "datanya[i]['image']",
-      "datanya[i]['name']",
-    ),
-  ];
-  List<CategoryItem> categoryItems = [
-    CategoryItem(
-      "datanya[i]['id']",
-      "datanya[i]['fav']",
-      "datanya[i]['image']",
-      "datanya[i]['name']",
-    ),
-  ];
+  final MainController _mainController = Get.find();
+
   SolidController _controller = SolidController();
   @override
   void initState() {
-    // TODO: implement initState
-    for (int i = 0; i < 16; i++) {
-      categoryItems.add(
-        CategoryItem(
-          "datanya[i]['id']",
-          "datanya[i]['fav']",
-          "datanya[i]['image']",
-          "datanya[i]['name']",
-        ),
-      );
-      if ("1" == "1") {
-        categoryItemsfav.add(
-          CategoryItem2(
-            i,
-            "datanya[i]['id']",
-            "datanya[i]['fav']" == "1" ? true : false,
-            "datanya[i]['image']",
-            "datanya[i]['name']",
-          ),
-        );
-      } else {
-        categoryItemsnonfav.add(
-          CategoryItem2(
-            i,
-            "datanya[i]['id']",
-            "datanya[i]['fav']" == "1" ? true : false,
-            "datanya[i]['image']",
-            "datanya[i]['name']",
-          ),
-        );
-      }
-    }
     super.initState();
   }
 
@@ -413,88 +360,111 @@ class _FrameHomeState extends State<FrameHome> {
                         ])),
                     Container(
                       padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: GridView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 4, mainAxisSpacing: 20),
-                          itemCount: 8,
-                          itemBuilder: (context, i) {
-                            if (i < 7) {
-                              return Expanded(
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .push(new MaterialPageRoute(
-                                            builder: (context) =>
-                                                new ListConselor("WinMarried")))
-                                        .then((result) {
-                                      if (result != "") {
-                                        debugPrint(result);
-                                      }
-                                    });
-                                  },
-                                  child: iconmenu(
-                                      context,
-                                      categoryItems[0].image.toString(),
-                                      "type",
-                                      categoryItems[0].name.toString()),
+                      child: Obx(
+                        () {
+                          if (_mainController.listCategory.length == 0) {
+                            return Center(
+                              child: SizedBox(
+                                height: 50,
+                                width: 50,
+                                child: SpinKitFadingCircle(
+                                  color: mainColor,
                                 ),
-                              );
-                            }
-                            return Expanded(
-                              child: InkWell(
-                                onTap: () {
-                                  _controller.isOpened
-                                      ? _controller.hide()
-                                      : _controller.show();
-                                },
-                                child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Center(
-                                        child: Container(
-                                            width: 60,
-                                            height: 60,
-                                            decoration: BoxDecoration(
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.grey
-                                                        .withOpacity(0.2),
-                                                    spreadRadius: 0.8,
-                                                    blurRadius: 8,
-                                                    offset: Offset(2,
-                                                        6), // changes position of shadow
-                                                  ),
-                                                ],
-                                                color: Colors.white,
-                                                border: Border.all(
-                                                  color: Colors.white,
-                                                ),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(35))),
-                                            child: Center(
-                                              child: Image.asset(
-                                                'assets/icon_menu8.png',
-                                                width: 35,
-                                              ),
-                                            )),
-                                      ),
-                                      Container(
-                                        margin: const EdgeInsets.only(top: 10),
-                                        child: Text("All",
-                                            textAlign: TextAlign.center,
-                                            style: TextStyle(
-                                                fontFamily: 'mulibold',
-                                                fontSize: 12)),
-                                      )
-                                    ]),
                               ),
                             );
-                          }),
+                          } else {
+                            return GridView.builder(
+                                physics: const NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 4, mainAxisSpacing: 20),
+                                itemCount: _mainController.listCategory.length,
+                                itemBuilder: (context, i) {
+                                  if (i < 7) {
+                                    return Expanded(
+                                      child: InkWell(
+                                        onTap: () {
+                                          Navigator.of(context)
+                                              .push(new MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      new ListConselor(
+                                                          "WinMarried")))
+                                              .then((result) {
+                                            if (result != "") {
+                                              debugPrint(result);
+                                            }
+                                          });
+                                        },
+                                        child: iconmenu(
+                                            context,
+                                            _mainController
+                                                .listCategory[i].image,
+                                            "type",
+                                            _mainController
+                                                .listCategory[i].name),
+                                      ),
+                                    );
+                                  }
+                                  return Expanded(
+                                    child: InkWell(
+                                      onTap: () {
+                                        _controller.isOpened
+                                            ? _controller.hide()
+                                            : _controller.show();
+                                      },
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Center(
+                                              child: Container(
+                                                  width: 60,
+                                                  height: 60,
+                                                  decoration: BoxDecoration(
+                                                      boxShadow: [
+                                                        BoxShadow(
+                                                          color: Colors.grey
+                                                              .withOpacity(0.2),
+                                                          spreadRadius: 0.8,
+                                                          blurRadius: 8,
+                                                          offset: Offset(2,
+                                                              6), // changes position of shadow
+                                                        ),
+                                                      ],
+                                                      color: Colors.white,
+                                                      border: Border.all(
+                                                        color: Colors.white,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.all(
+                                                              Radius.circular(
+                                                                  35))),
+                                                  child: Center(
+                                                    child: Image.asset(
+                                                      'assets/icon_menu8.png',
+                                                      width: 35,
+                                                    ),
+                                                  )),
+                                            ),
+                                            Container(
+                                              margin: const EdgeInsets.only(
+                                                  top: 10),
+                                              child: Text("All",
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                      fontFamily: 'mulibold',
+                                                      fontSize: 12)),
+                                            )
+                                          ]),
+                                    ),
+                                  );
+                                });
+                          }
+                        },
+                      ),
                     ),
 
                     //==========================================================================
@@ -861,7 +831,7 @@ class _FrameHomeState extends State<FrameHome> {
                   child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: categoryItemsfav.length,
+                      itemCount: _mainController.listCategory.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4, mainAxisSpacing: 20),
                       // ignore: missing_return
@@ -871,7 +841,7 @@ class _FrameHomeState extends State<FrameHome> {
                             var then = Navigator.of(context)
                                 .push(new MaterialPageRoute(
                                     builder: (context) => new ListConselor(
-                                        categoryItemsfav[i].id.toString())))
+                                        _mainController.listCategory[i].id)))
                                 .then((result) {
                               if (result != "") {
                                 debugPrint(result);
@@ -880,54 +850,54 @@ class _FrameHomeState extends State<FrameHome> {
                           },
                           child: iconmenu(
                               context,
-                              categoryItemsfav[i].image.toString(),
+                              _mainController.listCategory[i].image,
                               "type",
-                              categoryItemsfav[i].name.toString()),
+                              _mainController.listCategory[i].name),
                         );
                       }),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 15, bottom: 5),
-                  padding: const EdgeInsets.all(15),
-                  width: double.infinity,
-                  child: Text(
-                    "Other Service",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontFamily: 'neosansbold',
-                      fontSize: 20,
-                    ),
-                  ),
-                ),
-                Container(
-                  child: GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: categoryItemsnonfav.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 4, mainAxisSpacing: 20),
-                      itemBuilder: (ctx, i) {
-                        var ii = i;
-                        return InkWell(
-                          onTap: () {
-                            Navigator.of(context)
-                                .push(new MaterialPageRoute(
-                                    builder: (context) => new ListConselor(
-                                        categoryItemsnonfav[ii].id.toString())))
-                                .then((result) {
-                              if (result != "") {
-                                debugPrint(result);
-                              }
-                            });
-                          },
-                          child: iconmenu(
-                              context,
-                              categoryItemsnonfav[ii].image.toString(),
-                              "type",
-                              categoryItemsnonfav[ii].name.toString()),
-                        );
-                      }),
-                ),
+                // Container(
+                //   margin: const EdgeInsets.only(top: 15, bottom: 5),
+                //   padding: const EdgeInsets.all(15),
+                //   width: double.infinity,
+                //   child: Text(
+                //     "Other Service",
+                //     textAlign: TextAlign.left,
+                //     style: TextStyle(
+                //       fontFamily: 'neosansbold',
+                //       fontSize: 20,
+                //     ),
+                //   ),
+                // ),
+                // Container(
+                //   child: GridView.builder(
+                //       physics: const NeverScrollableScrollPhysics(),
+                //       shrinkWrap: true,
+                //       itemCount: categoryItemsnonfav.length,
+                //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                //           crossAxisCount: 4, mainAxisSpacing: 20),
+                //       itemBuilder: (ctx, i) {
+                //         var ii = i;
+                //         return InkWell(
+                //           onTap: () {
+                //             Navigator.of(context)
+                //                 .push(new MaterialPageRoute(
+                //                     builder: (context) => new ListConselor(
+                //                         categoryItemsnonfav[ii].id.toString())))
+                //                 .then((result) {
+                //               if (result != "") {
+                //                 debugPrint(result);
+                //               }
+                //             });
+                //           },
+                //           child: iconmenu(
+                //               context,
+                //               categoryItemsnonfav[ii].image.toString(),
+                //               "type",
+                //               categoryItemsnonfav[ii].name.toString()),
+                //         );
+                //       }),
+                // ),
               ],
             ),
           ),

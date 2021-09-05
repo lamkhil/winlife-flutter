@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:winlife/controller/main_controller.dart';
 import 'package:winlife/data/model/category_model.dart';
 
 class FrameQuick extends StatefulWidget {
@@ -28,20 +30,10 @@ class _FrameQuickState extends State<FrameQuick> {
   bool mainload = false;
   bool havedata = false;
 
-  Future _getlist() async {
-    setState(() {
-      for (int i = 0; i < 8; i++) {
-        categoryItems.add(
-          CategoryItem("datanya[i]['id']", "datanya[i]['image']",
-              "datanya[i]['name']", ""),
-        );
-      }
-    });
-  }
+  final MainController _mainController = Get.find();
 
   @override
   void initState() {
-    _getlist();
     super.initState();
   }
 
@@ -493,21 +485,27 @@ class _FrameQuickState extends State<FrameQuick> {
                   child: GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: categoryItems.length,
+                      itemCount: _mainController.listCategory.length,
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 4, mainAxisSpacing: 20),
                       itemBuilder: (ctx, i) {
-                        var ii = i;
                         return InkWell(
                           onTap: () {
                             setState(() {
-                              id_layanan = categoryItems[ii].id.toString();
-                              icon_layanan = categoryItems[ii].image.toString();
-                              judul_layanan = categoryItems[ii].name.toString();
+                              id_layanan =
+                                  _mainController.listCategory[i].id.toString();
+                              icon_layanan = _mainController
+                                  .listCategory[i].image
+                                  .toString();
+                              judul_layanan = _mainController
+                                  .listCategory[i].name
+                                  .toString();
                             });
                           },
-                          child: iconmenu(categoryItems[ii].image.toString(),
-                              "type", categoryItems[ii].name.toString()),
+                          child: iconmenu(
+                              _mainController.listCategory[i].image.toString(),
+                              "type",
+                              _mainController.listCategory[i].name.toString()),
                         );
                       }),
                 ),

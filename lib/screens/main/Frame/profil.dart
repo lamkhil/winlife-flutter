@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/auth_controller.dart';
-import 'package:winlife/data/model/user_model.dart';
 
 class FrameProfile extends StatefulWidget {
   const FrameProfile({Key? key}) : super(key: key);
@@ -89,9 +88,14 @@ class _FrameProfilState extends State<FrameProfile> {
                                             child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(18),
-                                                child: Image.network(
-                                                  _authController.user.avatar,
-                                                )),
+                                                child: _authController
+                                                            .user.avatar !=
+                                                        ''
+                                                    ? Image.network(
+                                                        _authController
+                                                            .user.avatar,
+                                                      )
+                                                    : Container()),
                                           ),
                                           onTap: () {},
                                         )),
