@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:get/get.dart';
 
 class LupaPasswordPage extends StatefulWidget {
   const LupaPasswordPage({Key? key}) : super(key: key);
@@ -64,7 +65,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         width: double.infinity,
                         child: Text(
-                          "Input your code to continue ",
+                          "input code".tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontFamily: "NeoSansBold", fontSize: 25),
@@ -74,7 +75,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         margin: const EdgeInsets.only(top: 10, bottom: 20),
                         child: Text(
-                          "Please enter your email Address\nwe'all send your reset code to change your password",
+                          "enter email".tr+"\nsend reset".tr,
                           textAlign: TextAlign.left,
                           style:
                               TextStyle(fontFamily: "MuliLight", fontSize: 12),
@@ -84,7 +85,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 5, right: 10),
                         width: double.infinity,
                         child: Text(
-                          "CODE ",
+                          "CODE ".tr,
                           textAlign: TextAlign.left,
                           style:
                               TextStyle(fontFamily: "mulilight", fontSize: 12),
@@ -109,7 +110,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Please enter some text';
+                                    return 'enter text'.tr;
                                   }
                                   return null;
                                 },
@@ -140,7 +141,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                                   //_CheckCode();
                                 },
                                 color: mainColor,
-                                child: Text('CONTINUE',
+                                child: Text('CONTINUE'.tr,
                                     style: TextStyle(
                                         fontSize: 5 * ls,
                                         color: Colors.white,
@@ -163,14 +164,14 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Find your password? ',
+                                  'find password'.tr,
                                   style: TextStyle(
                                       fontSize: 5 * ls,
                                       color: Colors.grey,
                                       fontFamily: 'muli'),
                                 ),
                                 Text(
-                                  'Login Here',
+                                  'Login Here'.tr,
                                   style: TextStyle(
                                       fontSize: 5 * ls,
                                       color: mainColor,
@@ -233,7 +234,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                               padding:
                                   const EdgeInsets.only(left: 10, right: 10),
                               child: Text(
-                                "Forgot\nYour Password? ",
+                                  'Forgot your password'.tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     fontFamily: "NeoSansBold", fontSize: 25),
@@ -246,7 +247,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         margin: const EdgeInsets.only(top: 10, bottom: 20),
                         child: Text(
-                          "Please enter your email Address\nwee'all send your reset code to change your password",
+                          'enter email and send reset'.tr,
                           textAlign: TextAlign.left,
                           style:
                               TextStyle(fontFamily: "MuliLight", fontSize: 12),
@@ -256,7 +257,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 5, right: 10),
                         width: double.infinity,
                         child: Text(
-                          "EMAIL ADDRESS ",
+                          "EMAIL ADDRESS ".tr,
                           textAlign: TextAlign.left,
                           style:
                               TextStyle(fontFamily: "mulilight", fontSize: 12),
@@ -279,7 +280,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Please enter some text';
+                                    return 'enter text'.tr;
                                   }
                                   return null;
                                 },
@@ -310,7 +311,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                                   //_RestLogin();
                                 },
                                 color: mainColor,
-                                child: Text('CONTINUE',
+                                child: Text('CONTINUE'.tr,
                                     style: TextStyle(
                                         fontSize: 5 * ls,
                                         color: Colors.white,
@@ -333,14 +334,14 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'Find your password? ',
+                                  'find password'.tr,
                                   style: TextStyle(
                                       fontSize: 5 * ls,
                                       color: Colors.grey,
                                       fontFamily: 'muli'),
                                 ),
                                 Text(
-                                  'Login Here',
+                                  'Login Here'.tr,
                                   style: TextStyle(
                                       fontSize: 5 * ls,
                                       color: mainColor,

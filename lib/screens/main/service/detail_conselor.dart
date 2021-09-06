@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:get/get.dart';
 
 class DetailConselor extends StatefulWidget {
   var id_conselor;
@@ -37,7 +38,7 @@ class _DetailConselorState extends State<DetailConselor> {
           ),
           backgroundColor: Colors.white,
           title: Text(
-            "Detail Conselor",
+            "Detail Counselor".tr,
             style: TextStyle(fontFamily: 'neosansbold', color: Colors.black87),
           ),
           actions: <Widget>[
@@ -186,7 +187,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                     Container(
                                       padding: const EdgeInsets.only(
                                           left: 10, top: 10),
-                                      child: Text("Specialist:",
+                                      child: Text("Specialist".tr,
                                           style: TextStyle(
                                               fontFamily: 'neosansbold',
                                               fontSize: 15)),
@@ -203,7 +204,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                     Container(
                                       padding: const EdgeInsets.only(
                                           left: 10, top: 10),
-                                      child: Text("Location :",
+                                      child: Text("Location".tr,
                                           style: TextStyle(
                                               fontFamily: 'neosansbold',
                                               fontSize: 15)),
@@ -220,7 +221,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                     Container(
                                       padding: const EdgeInsets.only(
                                           left: 10, top: 10),
-                                      child: Text("About:",
+                                      child: Text("About".tr,
                                           style: TextStyle(
                                               fontFamily: 'neosansbold',
                                               fontSize: 15)),
@@ -255,7 +256,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "Start With :",
+                                                "Start With".tr,
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(
                                                   fontFamily: 'neosansbold',

@@ -25,7 +25,7 @@ class _FrameProfilState extends State<FrameProfile> {
           backgroundColor: Color(0xff35B85A),
           title: Center(
             child: Text(
-              "Profile",
+              "Profile".tr,
               textAlign: TextAlign.center,
               style: TextStyle(fontFamily: 'neosansbold', color: Colors.white),
             ),
@@ -172,7 +172,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                                   fontSize: 13),
                                                             ),
                                                             Text(
-                                                              " Point",
+                                                              "Point".tr,
                                                               style: TextStyle(
                                                                   fontFamily:
                                                                       'mulilight',
@@ -228,7 +228,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                       left: 20, top: 10, bottom: 0),
                                   width: double.infinity,
                                   child: Text(
-                                    "Menu Profile",
+                                    "Menu Profile".tr,
                                     style: TextStyle(
                                         fontFamily: "NeoSansBold",
                                         fontSize: 16),
@@ -311,7 +311,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                 )),
                                             Expanded(
                                               child: Text(
-                                                "My Voucher",
+                                                "My Voucher".tr,
                                                 style: TextStyle(
                                                     fontFamily: "MuliBold",
                                                     fontWeight:
@@ -440,7 +440,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                 )),
                                             Expanded(
                                               child: Text(
-                                                "News",
+                                                "News".tr,
                                                 style: TextStyle(
                                                     fontFamily: "MuliBold",
                                                     fontWeight:
@@ -483,7 +483,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                 )),
                                             Expanded(
                                               child: Text(
-                                                "Help Centre",
+                                                "Help Center".tr,
                                                 style: TextStyle(
                                                     fontFamily: "MuliBold",
                                                     fontWeight:
@@ -526,7 +526,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                 )),
                                             Expanded(
                                               child: Text(
-                                                "Privacy Policy",
+                                                "Privacy Policy".tr,
                                                 style: TextStyle(
                                                     fontFamily: "MuliBold",
                                                     fontWeight:
@@ -623,7 +623,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                          "Logout",
+                                          "Logout".tr,
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontFamily: 'neosansbold',

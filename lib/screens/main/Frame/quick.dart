@@ -47,7 +47,7 @@ class _FrameQuickState extends State<FrameQuick> {
         backgroundColor: Color(0xff35B85A),
         title: Center(
           child: Text(
-            "Konsultasi",
+            "consultation".tr,
             textAlign: TextAlign.center,
             style: TextStyle(fontFamily: 'neosansbold', color: Colors.white),
           ),
@@ -63,7 +63,7 @@ class _FrameQuickState extends State<FrameQuick> {
 
                 Container(
                     child: Text(
-                  "Silahkan masukan data di bawah ini : ",
+                  "enter data".tr,
                   textAlign: TextAlign.start,
                   style: TextStyle(fontFamily: 'mulibold', fontSize: 18),
                 )),
@@ -76,7 +76,7 @@ class _FrameQuickState extends State<FrameQuick> {
 
                         Container(
                           width: double.infinity,
-                          child: Text("Pilih Tipe Konsultasi :"),
+                          child: Text("select consult"),
                         ),
                         Row(
                           children: [
@@ -92,7 +92,7 @@ class _FrameQuickState extends State<FrameQuick> {
                         Container(
                           margin: const EdgeInsets.only(top: 15),
                           width: double.infinity,
-                          child: Text("Termin Pembayaran :"),
+                          child: Text("Payment terms".tr),
                         ),
                         Row(
                           children: [
@@ -105,7 +105,7 @@ class _FrameQuickState extends State<FrameQuick> {
                         Container(
                           margin: const EdgeInsets.only(top: 15, bottom: 15),
                           width: double.infinity,
-                          child: Text("Pilih Layanan :"),
+                          child: Text("Select Service".tr),
                         ),
                         InkWell(
                           child: Container(
@@ -134,7 +134,7 @@ class _FrameQuickState extends State<FrameQuick> {
                                   Expanded(
                                     child: id_layanan == ''
                                         ? Text(
-                                            "Pilih Layanan",
+                                            "Select Services".tr,
                                             style: TextStyle(
                                                 fontFamily: 'neosansbold',
                                                 fontSize: 18),
@@ -212,7 +212,7 @@ class _FrameQuickState extends State<FrameQuick> {
                                 Container(
                                     width: double.infinity,
                                     margin: const EdgeInsets.only(top: 15),
-                                    child: Text("Please Input Your Problem :")),
+                                    child: Text("Input Problem".tr)),
                                 Container(
                                   child: TextFormField(
                                     controller: co_problem,
@@ -226,7 +226,7 @@ class _FrameQuickState extends State<FrameQuick> {
                                     ),
                                     validator: (value) {
                                       if (value!.isEmpty) {
-                                        return 'Please enter some text';
+                                        return 'enter text'.tr;
                                       }
                                       return null;
                                     },
@@ -274,7 +274,7 @@ class _FrameQuickState extends State<FrameQuick> {
                             if (id_layanan != "") {}
                           },
                           child: Text(
-                            "Cari Konselor",
+                            "Find a Counselor".tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontFamily: 'neosansbold',
@@ -462,7 +462,7 @@ class _FrameQuickState extends State<FrameQuick> {
                   padding: const EdgeInsets.all(15),
                   width: double.infinity,
                   child: Text(
-                    "Pilih layanan dibawah ini :",
+                    "Choose Service below".tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontFamily: 'neosansbold',
@@ -534,7 +534,7 @@ class _FrameQuickState extends State<FrameQuick> {
               const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
           margin: const EdgeInsets.only(top: 15, left: 5, right: 5),
           child: Text(
-            "$durasi Menit",
+            "$durasi"+"Minute".tr,
             textAlign: TextAlign.center,
           ),
         ),

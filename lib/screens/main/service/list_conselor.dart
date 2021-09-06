@@ -34,7 +34,7 @@ class _ListConselorState extends State<ListConselor> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "List Conselor",
+            "List Counselor",
             style: TextStyle(fontFamily: 'neosansbold'),
           ),
           actions: <Widget>[
@@ -156,7 +156,7 @@ class _ListConselorState extends State<ListConselor> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Start With :",
+                                  "Start With".tr,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: 'neosansbold',

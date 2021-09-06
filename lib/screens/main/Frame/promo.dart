@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:get/get.dart';
 
 class FramePromo extends StatefulWidget {
   const FramePromo({Key? key}) : super(key: key);
@@ -141,7 +142,7 @@ class _FramePromoState extends State<FramePromo> {
                             children: [
                               Expanded(
                                 child: Text(
-                                  "Yes, I Want",
+                                  "I Want".tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: 'neosansbold',

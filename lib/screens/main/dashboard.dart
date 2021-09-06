@@ -5,6 +5,7 @@ import 'package:winlife/screens/main/Frame/home.dart';
 import 'package:winlife/screens/main/Frame/profil.dart';
 import 'package:winlife/screens/main/Frame/promo.dart';
 import 'package:winlife/screens/main/Frame/quick.dart';
+import 'package:get/get.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -62,7 +63,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "History",
+                  "History".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 1 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -80,7 +81,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Konsultasi",
+                  "consultation".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 2 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -98,7 +99,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Reward",
+                  "Reward".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 3 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -116,7 +117,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Profile",
+                  "Profile".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 4 ? 'mulibold' : 'muli',
                       fontSize: 12),

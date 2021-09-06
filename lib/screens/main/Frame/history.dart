@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:winlife/constant/color.dart';
 
@@ -22,7 +23,7 @@ class _FrameHistoryState extends State<FrameHistory> {
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
-            "History",
+            "History".tr,
             textAlign: TextAlign.center,
             style: TextStyle(fontFamily: 'neosansbold', color: Colors.black87),
           ),
@@ -54,7 +55,7 @@ class _FrameHistoryState extends State<FrameHistory> {
                             Container(
                               padding: const EdgeInsets.all(10),
                               child: Text(
-                                "Empty",
+                                "Empty".tr,
                                 style: TextStyle(
                                     fontFamily: "neosansbold", fontSize: 20),
                               ),
@@ -65,7 +66,7 @@ class _FrameHistoryState extends State<FrameHistory> {
                               },
                               child: Container(
                                   padding: const EdgeInsets.all(10),
-                                  child: Text("Reload")),
+                                  child: Text("Reload".tr)),
                             ),
                           ],
                         ),
@@ -173,7 +174,7 @@ class _FrameHistoryState extends State<FrameHistory> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Problem: ",
+                                "Problem".tr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                     fontFamily: 'mulibold',
