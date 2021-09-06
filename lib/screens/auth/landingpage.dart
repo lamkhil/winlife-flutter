@@ -37,6 +37,13 @@ class _LandingPageState extends State<LandingPage> {
     super.dispose();
   }
 
+  @override
+  void didChangeDependencies() {
+    _controller.hide();
+    isOpen.value = false;
+    super.didChangeDependencies();
+  }
+
   List lang = [
     Container(
       padding: EdgeInsets.all(10),
@@ -361,10 +368,16 @@ class _LandingPageState extends State<LandingPage> {
             )),
             Obx(() => Visibility(
                   visible: isOpen.value,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.black.withOpacity(0.5),
+                  child: InkWell(
+                    onTap: () {
+                      _controller.hide();
+                      isOpen.value = false;
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      width: MediaQuery.of(context).size.width,
+                      color: Colors.black.withOpacity(0.5),
+                    ),
                   ),
                 ))
           ],
