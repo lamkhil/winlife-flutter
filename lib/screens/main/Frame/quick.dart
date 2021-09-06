@@ -292,11 +292,8 @@ class _FrameQuickState extends State<FrameQuick> {
       bottomSheet: SolidBottomSheet(
         maxHeight: 500,
         controller: _controller,
-        draggableBody: true,
         toggleVisibilityOnTap: true,
-        body: Container(
-          padding: const EdgeInsets.only(left: 10, right: 10),
-          color: Colors.white,
+        body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
@@ -352,14 +349,7 @@ class _FrameQuickState extends State<FrameQuick> {
                 height: 0.5,
                 color: Colors.white,
               ),
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                      width: double.infinity,
-                      color: Colors.white,
-                      child: buildIconFooter()),
-                ),
-              )
+              Container(width: double.infinity, child: buildIconFooter())
             ],
           ),
         ),
@@ -465,7 +455,6 @@ class _FrameQuickState extends State<FrameQuick> {
         children: [
           Container(
             padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(color: Colors.white),
             child: Column(
               children: <Widget>[
                 Container(
@@ -481,8 +470,8 @@ class _FrameQuickState extends State<FrameQuick> {
                     ),
                   ),
                 ),
-                Container(
-                  child: GridView.builder(
+                Obx(
+                  () => GridView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: _mainController.listCategory.length,

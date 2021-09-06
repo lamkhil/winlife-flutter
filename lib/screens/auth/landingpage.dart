@@ -310,9 +310,10 @@ class _LandingPageState extends State<LandingPage> {
                                   children: <Widget>[
                                     InkWell(
                                       onTap: () {
-                                        Get.toNamed(Routes.WEBVIEW,
-                                            arguments:
-                                                "https://www.termsandcondiitionssample.com/live.php?token=CpsMXwAFpKwPo3uIMxalgajPTR8K4Iqc");
+                                        Get.toNamed(Routes.WEBVIEW, arguments: [
+                                          "https://www.termsandcondiitionssample.com/live.php?token=CpsMXwAFpKwPo3uIMxalgajPTR8K4Iqc",
+                                          'terms'.tr
+                                        ]);
                                       },
                                       child: Text(
                                         'terms'.tr,
@@ -332,12 +333,10 @@ class _LandingPageState extends State<LandingPage> {
                                     ),
                                     InkWell(
                                       onTap: () {
-                                        // Navigator.push(
-                                        //   context,
-                                        //   new MaterialPageRoute(
-                                        //       builder: (context) => new HtmlView(
-                                        //           "Kebijakan Privasi", "kebijakanprivasi")),
-                                        // );
+                                        Get.toNamed(Routes.WEBVIEW, arguments: [
+                                          "https://www.termsandcondiitionssample.com/live.php?token=CpsMXwAFpKwPo3uIMxalgajPTR8K4Iqc",
+                                          'privacy'.tr
+                                        ]);
                                       },
                                       child: Text(
                                         'privacy'.tr,
@@ -382,7 +381,7 @@ class _LandingPageState extends State<LandingPage> {
                 height: 12,
               ),
               Text(
-                "Pilih bahasa".tr,
+                "pilih bahasa".tr,
                 textAlign: TextAlign.left,
                 style: TextStyle(fontFamily: "NeoSansBold", fontSize: 16),
               ),
