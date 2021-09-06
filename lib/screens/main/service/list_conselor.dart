@@ -10,9 +10,6 @@ import 'package:winlife/data/model/conselor_model.dart';
 import 'package:winlife/screens/main/service/detail_conselor.dart';
 
 class ListConselor extends StatefulWidget {
-  var id_layanan;
-  ListConselor(this.id_layanan);
-
   @override
   _ListConselorState createState() => _ListConselorState();
 }

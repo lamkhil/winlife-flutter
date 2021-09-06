@@ -5,6 +5,7 @@ import 'package:winlife/screens/main/Frame/home.dart';
 import 'package:winlife/screens/main/Frame/profil.dart';
 import 'package:winlife/screens/main/Frame/promo.dart';
 import 'package:winlife/screens/main/Frame/quick.dart';
+import 'package:get/get.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -21,15 +22,12 @@ class _DashboardPageState extends State<DashboardPage> {
     FramePromo(),
     FrameProfile()
   ];
-  int _currentIndex = 0;
+  var _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: IndexedStack(
-          index: _currentIndex,
-          children: _tabList,
-        ),
+        body: _tabList[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           selectedItemColor: mainColor,
