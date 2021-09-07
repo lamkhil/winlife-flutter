@@ -58,7 +58,7 @@ class _FrameHomeState extends State<FrameHome> {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      "Find News".tr,
+                                      "Find News, Service...",
                                       style: TextStyle(
                                           fontSize: 14,
                                           color: Colors.black,
@@ -108,7 +108,7 @@ class _FrameHomeState extends State<FrameHome> {
                                     topLeft: Radius.circular(7),
                                     topRight: Radius.circular(7))),
                             child: Text(
-                              "welcome".tr,
+                              "Selamat Datang Di WinLife",
                               style: TextStyle(
                                   fontFamily: 'mulibold', color: Colors.white),
                             ),
@@ -212,7 +212,7 @@ class _FrameHomeState extends State<FrameHome> {
                                         child: Row(children: [
                                           Expanded(
                                             child: Center(
-                                                child: Text('Account'.tr,
+                                                child: Text('Akun',
                                                     style: TextStyle(
                                                         fontFamily: 'muli',
                                                         fontSize: 11,
@@ -220,7 +220,7 @@ class _FrameHomeState extends State<FrameHome> {
                                           ),
                                           Expanded(
                                             child: Center(
-                                                child: Text('News'.tr,
+                                                child: Text('News',
                                                     style: TextStyle(
                                                         fontFamily: 'muli',
                                                         fontSize: 11,
@@ -228,7 +228,7 @@ class _FrameHomeState extends State<FrameHome> {
                                           ),
                                           Expanded(
                                             child: Center(
-                                                child: Text('Reward'.tr,
+                                                child: Text('Reward',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                         fontFamily: 'muli',
@@ -258,7 +258,7 @@ class _FrameHomeState extends State<FrameHome> {
                                         children: [
                                           Container(
                                             child: Text(
-                                              "MyPoint".tr,
+                                              "Poin Saya",
                                               style: TextStyle(
                                                   fontFamily: 'neosansbold',
                                                   color: Colors.white),
@@ -297,7 +297,7 @@ class _FrameHomeState extends State<FrameHome> {
                                                               fontSize: 13),
                                                         ),
                                                         Text(
-                                                          "Point".tr,
+                                                          " Poin",
                                                           style: TextStyle(
                                                               fontFamily:
                                                                   'mulilight',
@@ -338,7 +338,7 @@ class _FrameHomeState extends State<FrameHome> {
                           Container(
                             width: double.infinity,
                             child: Text(
-                              "Our Service".tr,
+                              "Our Service",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'neosansbold',
@@ -349,7 +349,7 @@ class _FrameHomeState extends State<FrameHome> {
                           Container(
                             width: double.infinity,
                             child: Text(
-                              "Consulting Your Life".tr,
+                              "konsultasi Kehidupan Anda",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontFamily: 'muli',
@@ -452,7 +452,7 @@ class _FrameHomeState extends State<FrameHome> {
                                             Container(
                                               margin: const EdgeInsets.only(
                                                   top: 10),
-                                              child: Text("All".tr,
+                                              child: Text("All",
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontFamily: 'mulibold',
@@ -489,7 +489,7 @@ class _FrameHomeState extends State<FrameHome> {
                               Container(
                                 width: double.infinity,
                                 child: Text(
-                                  "Consulting Your Life".tr,
+                                  "konsultasi Kehidupan Anda",
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: 'muli',
@@ -507,7 +507,7 @@ class _FrameHomeState extends State<FrameHome> {
                                   Container(
                                     width: double.infinity,
                                     child: Text(
-                                      "See All".tr,
+                                      "See All",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
                                           fontFamily: 'mulibold',
@@ -545,12 +545,12 @@ class _FrameHomeState extends State<FrameHome> {
                       child: new SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(children: [
-                          promoview2("Married".tr),
-                          promoview2("Parenting".tr),
-                          promoview2("Family".tr),
-                          promoview2("Self".tr),
-                          promoview2("Business".tr),
-                          promoview2("Addictive".tr),
+                          promoview2("Married"),
+                          promoview2("Parenting"),
+                          promoview2("Family"),
+                          promoview2("Self"),
+                          promoview2("Bussines"),
+                          promoview2("Addictive"),
                         ]),
                       ),
                     ),
@@ -567,7 +567,7 @@ class _FrameHomeState extends State<FrameHome> {
                               Container(
                                 width: double.infinity,
                                 child: Text(
-                                  "News".tr,
+                                  "News",
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontFamily: 'neosansbold',
@@ -585,7 +585,7 @@ class _FrameHomeState extends State<FrameHome> {
                                   Container(
                                     width: double.infinity,
                                     child: Text(
-                                      "See All".tr,
+                                      "See All",
                                       textAlign: TextAlign.right,
                                       style: TextStyle(
                                           fontFamily: 'mulibold',
@@ -607,11 +607,11 @@ class _FrameHomeState extends State<FrameHome> {
                       child: new SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(children: [
-                          exploreview(context, "How using WinLife".tr),
-                          exploreview(context, "consultation".tr),
+                          exploreview(context, "How using WinLife"),
+                          exploreview(context, "Konsultasi"),
                           exploreview(context, "Chat"),
                           exploreview(context, "Video"),
-                          exploreview(context, "Service".tr),
+                          exploreview(context, "Layanan"),
                         ]),
                       ),
                     ),
@@ -802,7 +802,7 @@ class _FrameHomeState extends State<FrameHome> {
                         Expanded(
                           flex: 5,
                           child: Text(
-                            "Your Favorites".tr,
+                            "Your Favourites ",
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontFamily: 'neosansbold',

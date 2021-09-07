@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/auth_controller.dart';
@@ -16,6 +17,11 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController pass = new TextEditingController();
   AuthController _authController = Get.find();
   final _formKey = GlobalKey<FormState>();
+  var _obscureText = true.obs;
+  void _toggle() {
+    _obscureText.value = !_obscureText.value;
+  }
+
   @override
   Widget build(BuildContext context) {
     var ls = MediaQuery.of(context).devicePixelRatio;
@@ -93,22 +99,44 @@ class _LoginPageState extends State<LoginPage> {
                             style: TextStyle(
                                 fontFamily: "mulilight", fontSize: 12),
                           )),
-                      Container(
-                        padding: const EdgeInsets.only(left: 10, right: 10),
-                        margin: const EdgeInsets.only(top: 1),
-                        child: TextFormField(
-                          controller: pass,
-                          obscureText: true,
-                          autofocus: false,
-                          decoration: const InputDecoration(
-                            hintText: 'Input Password',
+                      Obx(
+                        () => Container(
+                          padding: const EdgeInsets.only(left: 10, right: 10),
+                          margin: const EdgeInsets.only(top: 1),
+                          child: Stack(
+                            children: [
+                              TextFormField(
+                                controller: pass,
+                                obscureText: _obscureText.value,
+                                autofocus: false,
+                                decoration: const InputDecoration(
+                                  hintText: 'Input Password',
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter some text';
+                                  }
+                                  return null;
+                                },
+                              ),
+                              Positioned(
+                                  top: 10,
+                                  right: 5,
+                                  child: InkWell(
+                                      onTap: () {
+                                        _toggle();
+                                      },
+                                      child: new Icon(
+                                        _obscureText.value
+                                            ? FontAwesomeIcons.solidEye
+                                            : FontAwesomeIcons.eyeSlash,
+                                        size: 18,
+                                        color: _obscureText.value
+                                            ? Colors.grey
+                                            : Colors.green,
+                                      ))),
+                            ],
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter some text';
-                            }
-                            return null;
-                          },
                         ),
                       ),
                     ],
