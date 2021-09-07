@@ -37,7 +37,7 @@ const Map<String, String> idID = {
   'Reload': 'Muat ulang',
   'Problem': 'Masalah: ',
   //home
-  'Find News': 'Temukan Berita, Service...',
+  'Find News': 'Cari Layanan...',
   'Account': 'Akun',
   'News': 'Berita',
   'Reward': 'Hadian',
@@ -68,7 +68,7 @@ const Map<String, String> idID = {
   'Logout': 'Keluar',
 
   //promo
-  'I Want': 'Ya, Saya ingin',
+  'I Want': 'Ya, aku mau',
 
   //quick
   'enter data': 'Silahkan masukan data dibawah ini : ',

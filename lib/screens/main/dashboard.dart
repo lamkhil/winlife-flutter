@@ -68,7 +68,7 @@ class _DashboardPageState extends State<DashboardPage> {
           items: [
             BottomNavigationBarItem(
                 title: Text(
-                  "Home",
+                  'Home'.tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 0 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -86,7 +86,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "History",
+                  "History".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 1 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -104,7 +104,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Konsultasi",
+                  "consultation".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 2 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -122,7 +122,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Reward",
+                  "Reward".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 3 ? 'mulibold' : 'muli',
                       fontSize: 12),
@@ -140,7 +140,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       )),
             BottomNavigationBarItem(
                 title: Text(
-                  "Profile",
+                  "Profile".tr,
                   style: TextStyle(
                       fontFamily: _currentIndex == 4 ? 'mulibold' : 'muli',
                       fontSize: 12),
