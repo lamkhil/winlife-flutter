@@ -91,6 +91,19 @@ class HttpService {
     }
   }
 
+  static Future<dynamic> getAllDuration(String token) async {
+    try {
+      String url = Api.DURATION;
+
+      final res = await http.get(Uri.parse(url),
+          headers: {"x-api-key": Api.API_KEY, "x-token": token});
+      final result = await compute(convert.jsonDecode, res.body);
+      return result;
+    } catch (e) {
+      return null;
+    }
+  }
+
   static Future<dynamic> getAllConselor(String token) async {
     try {
       String url = Api.KONSELOR;

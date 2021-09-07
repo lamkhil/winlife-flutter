@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mime/mime.dart';
 import 'package:open_file/open_file.dart';
@@ -167,30 +168,33 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _loadMessages() async {
-    final response = await rootBundle.loadString('assets/messages.json');
-    final messages = (jsonDecode(response) as List)
-        .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
-        .toList();
+    // final response = await rootBundle.loadString('assets/messages.json');
+    // final messages = (jsonDecode(response) as List)
+    //     .map((e) => types.Message.fromJson(e as Map<String, dynamic>))
+    //     .toList();
 
-    setState(() {
-      _messages = messages;
-    });
+    // setState(() {
+    //   _messages = messages;
+    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 80,
+      appBar: AppBar(
+        toolbarHeight: 80,
         backgroundColor: Colors.white,
         title: Container(
           margin: EdgeInsets.symmetric(vertical: 20.0),
-          child : Row(
+          child: Row(
             children: [
               CircleAvatar(
                 backgroundImage: AssetImage('assets/profile/privacy.png'),
                 radius: 20.0,
               ),
-              SizedBox(width: 10.0,),
+              SizedBox(
+                width: 10.0,
+              ),
               Expanded(
                 child: Text(
                   'Robby Christhin',
@@ -201,7 +205,6 @@ class _ChatPageState extends State<ChatPage> {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
@@ -219,7 +222,14 @@ class _ChatPageState extends State<ChatPage> {
                   height: MediaQuery.of(context).size.height,
                   child: Chat(
                     theme: const DefaultChatTheme(
-                        primaryColor: mainColor, secondaryColor: Colors.grey, inputBackgroundColor: greyColor),
+                        primaryColor: mainColor,
+                        inputTextColor: Colors.black,
+                        secondaryColor: Colors.grey,
+                        sendButtonIcon: Icon(
+                          FontAwesomeIcons.paperPlane,
+                          color: Colors.black,
+                        ),
+                        inputBackgroundColor: greyColor),
                     messages: _messages,
                     onAttachmentPressed: _handleAtachmentPressed,
                     onMessageTap: _handleMessageTap,

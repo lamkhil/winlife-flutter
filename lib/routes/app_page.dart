@@ -7,8 +7,11 @@ import 'package:winlife/screens/auth/otppage.dart';
 import 'package:winlife/screens/auth/registerSocialPage.dart';
 import 'package:winlife/screens/auth/registerpage.dart';
 import 'package:winlife/screens/main/dashboard.dart';
+import 'package:winlife/screens/main/service/detail_order.dart';
 import 'package:winlife/screens/main/service/list_conselor.dart';
 import 'package:winlife/screens/main/service/start_detail.dart';
+import 'package:winlife/screens/main/service/type/call_screen.dart';
+import 'package:winlife/screens/main/service/type/chat_screen.dart';
 import 'package:winlife/screens/splashscreen.dart';
 import 'package:winlife/screens/auth/loginpage.dart';
 import 'package:winlife/screens/webview.dart';
@@ -51,5 +54,8 @@ class AppPages {
     GetPage(name: Routes.WEBVIEW, page: () => WebViewPage()),
     GetPage(name: Routes.LISTCONSELOR, page: () => ListConselor()),
     GetPage(name: Routes.STARTDETAIL, page: () => StartDetail()),
+    GetPage(name: Routes.DETAILORDER, page: () => DetailOrder()),
+    GetPage(name: Routes.CALLSCREEN, page: () => CallScreen()),
+    GetPage(name: Routes.CHATSCREEN, page: () => ChatScreen()),
   ];
 }

@@ -11,4 +11,7 @@ abstract class Routes {
   static const WEBVIEW = '/webview';
   static const LISTCONSELOR = '/listconselor';
   static const STARTDETAIL = '/startdetail';
+  static const DETAILORDER = '/detailorder';
+  static const CALLSCREEN = '/callscreen';
+  static const CHATSCREEN = '/chatscreen';
 }

@@ -3,6 +3,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:get/get.dart';
+import 'package:winlife/routes/app_routes.dart';
 
 class DetailConselor extends StatefulWidget {
   var id_conselor;
@@ -23,7 +24,9 @@ class _DetailConselorState extends State<DetailConselor> {
   var data5 = "";
   bool loaded = false;
 
-  void Consulnow(type, data) {}
+  void consulNow(type, data) {
+    Get.toNamed(Routes.DETAILORDER, arguments: {'type': type, 'data': data});
+  }
 
   Future<void> _refresh() async {}
 
@@ -271,7 +274,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                             Expanded(
                                                 child: InkWell(
                                               onTap: () {
-                                                Consulnow(
+                                                consulNow(
                                                     "Chat", widget.id_conselor);
                                               },
                                               child: Container(
@@ -284,7 +287,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                             Expanded(
                                                 child: InkWell(
                                               onTap: () {
-                                                Consulnow("Phone",
+                                                consulNow("Phone",
                                                     widget.id_conselor);
                                               },
                                               child: Container(
@@ -298,7 +301,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                             Expanded(
                                                 child: InkWell(
                                               onTap: () {
-                                                Consulnow("Video Call",
+                                                consulNow("Video Call",
                                                     widget.id_conselor);
                                               },
                                               child: Container(
@@ -312,7 +315,7 @@ class _DetailConselorState extends State<DetailConselor> {
                                             Expanded(
                                                 child: InkWell(
                                               onTap: () {
-                                                Consulnow("Meeting",
+                                                consulNow("Meeting",
                                                     widget.id_conselor);
                                               },
                                               child: Container(

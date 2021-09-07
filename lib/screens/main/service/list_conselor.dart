@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/main_controller.dart';
 import 'package:winlife/data/model/conselor_model.dart';
+import 'package:winlife/routes/app_routes.dart';
 import 'package:winlife/screens/main/service/detail_conselor.dart';
 
 class ListConselor extends StatefulWidget {
@@ -22,7 +23,9 @@ class _ListConselorState extends State<ListConselor> {
     await _mainController.getAllConselor();
   }
 
-  void Consulnow(type, data) {}
+  void consulNow(type, data) {
+    Get.toNamed(Routes.DETAILORDER, arguments: {'type': type, 'data': data});
+  }
 
   final MainController _mainController = Get.find();
 
@@ -34,14 +37,6 @@ class _ListConselorState extends State<ListConselor> {
             "List Counselor",
             style: TextStyle(fontFamily: 'neosansbold'),
           ),
-          actions: <Widget>[
-            // Padding(
-            //     padding: EdgeInsets.only(right: 20.0),
-            //     child: GestureDetector(
-            //       onTap: () {},
-            //       child: Icon(FontAwesomeIcons.filter, size: 18),
-            //     )),
-          ],
         ),
         body: SafeArea(
             child: RefreshIndicator(
@@ -168,7 +163,7 @@ class _ListConselorState extends State<ListConselor> {
                               Expanded(
                                   child: InkWell(
                                 onTap: () {
-                                  Consulnow("Chat", data);
+                                  consulNow("Chat", data);
                                 },
                                 child: Container(
                                   height: 35,
@@ -179,7 +174,7 @@ class _ListConselorState extends State<ListConselor> {
                               Expanded(
                                   child: InkWell(
                                 onTap: () {
-                                  Consulnow("Phone", data);
+                                  consulNow("Phone", data);
                                 },
                                 child: Container(
                                   height: 35,
@@ -190,7 +185,7 @@ class _ListConselorState extends State<ListConselor> {
                               Expanded(
                                   child: InkWell(
                                 onTap: () {
-                                  Consulnow("Video Call", data);
+                                  consulNow("Video Call", data);
                                 },
                                 child: Container(
                                   height: 35,
@@ -201,7 +196,7 @@ class _ListConselorState extends State<ListConselor> {
                               Expanded(
                                   child: InkWell(
                                 onTap: () {
-                                  Consulnow("Meeting", data);
+                                  consulNow("Meeting", data);
                                 },
                                 child: Container(
                                   height: 35,

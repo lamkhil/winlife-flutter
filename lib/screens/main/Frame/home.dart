@@ -27,601 +27,552 @@ class _FrameHomeState extends State<FrameHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          child: Column(
-            children: [
-              //==================================================================================
-              Container(
-                padding: const EdgeInsets.all(15),
-                child: Row(children: [
-                  Expanded(
-                    child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.only(left: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                          color: Colors.grey[200],
-                        ),
-                        height: 40,
-                        child: InkWell(
-                            onTap: () {},
-                            child: Row(
-                                children: <Widget>[
-                                  Container(
-                                    child: Icon(
-                                      Icons.search,
-                                      size: 20,
-                                      color: Colors.black,
-                                    ),
-                                    margin: const EdgeInsets.only(right: 10),
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      "Find News".tr,
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black,
-                                          fontFamily: 'Muli'),
-                                    ),
-                                  )
-                                ],
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.center))),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: Container(
+          padding: const EdgeInsets.all(15),
+          child: Row(children: [
+            Expanded(
+              child: Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                    color: Colors.grey[200],
                   ),
-                  Container(
-                    child: Image.asset(
-                      "assets/icon_message.png",
-                      width: 30,
-                    ),
-                    margin: const EdgeInsets.only(right: 10, left: 20),
-                  ),
-                ]),
-              ),
-              //==================================================================================
-              //
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Container(
-                      child: Column(children: [
-                    //=================================================================================
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.green,
-                          border: Border.all(
-                            color: Colors.white,
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(7))),
-                      margin: const EdgeInsets.only(
-                          top: 20, bottom: 20, left: 15, right: 15),
-                      child: Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            width: double.infinity,
-                            height: 45,
-                            decoration: BoxDecoration(
-                                color: Colors.green[700],
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(7),
-                                    topRight: Radius.circular(7))),
-                            child: Text(
-                              "welcome".tr,
-                              style: TextStyle(
-                                  fontFamily: 'mulibold', color: Colors.white),
+                  height: 40,
+                  child: InkWell(
+                      onTap: () {},
+                      child: Row(
+                          children: <Widget>[
+                            Container(
+                              child: Icon(
+                                Icons.search,
+                                size: 20,
+                                color: Colors.black,
+                              ),
+                              margin: const EdgeInsets.only(right: 10),
                             ),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(15),
-                            width: double.infinity,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(7))),
-                            child: Row(children: [
-                              Container(
-                                  child: Image.asset("assets/logo-white.png"),
-                                  margin: const EdgeInsets.only(right: 10)),
-                              Expanded(
-                                  child:
-                                      Container(height: 1, color: Colors.white))
-                            ]),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.only(
-                                bottom: 20, top: 5, left: 10, right: 10),
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(7))),
-                            child: Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Expanded(
-                                    flex: 5,
-                                    child: Column(children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(top: 5),
-                                        margin: const EdgeInsets.only(
-                                            right: 5, top: 0),
-                                        child: Row(children: [
-                                          Expanded(
-                                            child: Center(
-                                              child: Container(
-                                                width: 40,
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    border: Border.all(
-                                                        color: Colors.white)),
-                                                child: Image.asset(
-                                                  "assets/icon_banner_reward.png",
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Center(
-                                              child: Container(
-                                                width: 40,
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    border: Border.all(
-                                                        color: Colors.white)),
-                                                child: Image.asset(
-                                                  "assets/icon_banner_reward.png",
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Center(
-                                              child: Container(
-                                                width: 40,
-                                                padding:
-                                                    const EdgeInsets.all(10),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    border: Border.all(
-                                                        color: Colors.white)),
-                                                child: Image.asset(
-                                                  "assets/icon_banner_voucher.png",
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ]),
+                            Expanded(
+                              child: Text(
+                                "Find News".tr,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.black,
+                                    fontFamily: 'Muli'),
+                              ),
+                            )
+                          ],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center))),
+            ),
+            Container(
+              child: Image.asset(
+                "assets/icon_message.png",
+                width: 30,
+              ),
+              margin: const EdgeInsets.only(right: 10, left: 20),
+            ),
+          ]),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+            child: Column(children: [
+          //=================================================================================
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: Colors.green,
+                border: Border.all(
+                  color: Colors.white,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(7))),
+            margin:
+                const EdgeInsets.only(top: 20, bottom: 20, left: 15, right: 15),
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  width: double.infinity,
+                  height: 45,
+                  decoration: BoxDecoration(
+                      color: Colors.green[700],
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(7),
+                          topRight: Radius.circular(7))),
+                  child: Text(
+                    "welcome".tr,
+                    style:
+                        TextStyle(fontFamily: 'mulibold', color: Colors.white),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  width: double.infinity,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.all(Radius.circular(7))),
+                  child: Row(children: [
+                    Container(
+                        child: Image.asset("assets/logo-white.png"),
+                        margin: const EdgeInsets.only(right: 10)),
+                    Expanded(child: Container(height: 1, color: Colors.white))
+                  ]),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(
+                      bottom: 20, top: 5, left: 10, right: 10),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(7))),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 5,
+                          child: Column(children: [
+                            Container(
+                              padding: const EdgeInsets.only(top: 5),
+                              margin: const EdgeInsets.only(right: 5, top: 0),
+                              child: Row(children: [
+                                Expanded(
+                                  child: Center(
+                                    child: Container(
+                                      width: 40,
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                      child: Image.asset(
+                                        "assets/icon_banner_reward.png",
                                       ),
-                                      Container(
-                                        child: Row(children: [
-                                          Expanded(
-                                            child: Center(
-                                                child: Text('Account'.tr,
-                                                    style: TextStyle(
-                                                        fontFamily: 'muli',
-                                                        fontSize: 11,
-                                                        color: Colors.white))),
-                                          ),
-                                          Expanded(
-                                            child: Center(
-                                                child: Text('News'.tr,
-                                                    style: TextStyle(
-                                                        fontFamily: 'muli',
-                                                        fontSize: 11,
-                                                        color: Colors.white))),
-                                          ),
-                                          Expanded(
-                                            child: Center(
-                                                child: Text('Reward'.tr,
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontFamily: 'muli',
-                                                        fontSize: 11,
-                                                        color: Colors.white))),
-                                          ),
-                                        ]),
-                                        margin: const EdgeInsets.only(
-                                            right: 3, top: 5),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Center(
+                                    child: Container(
+                                      width: 40,
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                      child: Image.asset(
+                                        "assets/icon_banner_reward.png",
                                       ),
-                                    ]),
+                                    ),
                                   ),
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                        right: 15, left: 10),
-                                    width: 1,
-                                    height: 50,
-                                    color: Colors.white,
+                                ),
+                                Expanded(
+                                  child: Center(
+                                    child: Container(
+                                      width: 40,
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                      child: Image.asset(
+                                        "assets/icon_banner_voucher.png",
+                                      ),
+                                    ),
                                   ),
-                                  Expanded(
-                                      flex: 3,
-                                      child: Column(
+                                ),
+                              ]),
+                            ),
+                            Container(
+                              child: Row(children: [
+                                Expanded(
+                                  child: Center(
+                                      child: Text('Account'.tr,
+                                          style: TextStyle(
+                                              fontFamily: 'muli',
+                                              fontSize: 11,
+                                              color: Colors.white))),
+                                ),
+                                Expanded(
+                                  child: Center(
+                                      child: Text('News'.tr,
+                                          style: TextStyle(
+                                              fontFamily: 'muli',
+                                              fontSize: 11,
+                                              color: Colors.white))),
+                                ),
+                                Expanded(
+                                  child: Center(
+                                      child: Text('Reward'.tr,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontFamily: 'muli',
+                                              fontSize: 11,
+                                              color: Colors.white))),
+                                ),
+                              ]),
+                              margin: const EdgeInsets.only(right: 3, top: 5),
+                            ),
+                          ]),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(right: 15, left: 10),
+                          width: 1,
+                          height: 50,
+                          color: Colors.white,
+                        ),
+                        Expanded(
+                            flex: 3,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  child: Text(
+                                    "MyPoint".tr,
+                                    style: TextStyle(
+                                        fontFamily: 'neosansbold',
+                                        color: Colors.white),
+                                  ),
+                                  margin:
+                                      const EdgeInsets.only(left: 3, bottom: 5),
+                                ),
+                                Stack(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(
+                                          left: 6, top: 6),
+                                      padding: const EdgeInsets.all(2),
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(10)),
+                                          border:
+                                              Border.all(color: Colors.white)),
+                                      child: Row(
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.end,
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                            CrossAxisAlignment.center,
                                         children: [
-                                          Container(
-                                            child: Text(
-                                              "MyPoint".tr,
-                                              style: TextStyle(
-                                                  fontFamily: 'neosansbold',
-                                                  color: Colors.white),
+                                          FittedBox(
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  "2,000",
+                                                  style: TextStyle(
+                                                      fontFamily: 'neosansbold',
+                                                      fontSize: 13),
+                                                ),
+                                                Text(
+                                                  "Point".tr,
+                                                  style: TextStyle(
+                                                      fontFamily: 'mulilight',
+                                                      fontSize: 11),
+                                                )
+                                              ],
                                             ),
-                                            margin: const EdgeInsets.only(
-                                                left: 3, bottom: 5),
                                           ),
-                                          Stack(
-                                            children: [
-                                              Container(
-                                                margin: const EdgeInsets.only(
-                                                    left: 6, top: 6),
-                                                padding:
-                                                    const EdgeInsets.all(2),
-                                                decoration: BoxDecoration(
-                                                    color: Colors.white,
-                                                    borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                10)),
-                                                    border: Border.all(
-                                                        color: Colors.white)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    FittedBox(
-                                                      child: Row(
-                                                        children: [
-                                                          Text(
-                                                            "2,000",
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'neosansbold',
-                                                                fontSize: 13),
-                                                          ),
-                                                          Text(
-                                                            "Point".tr,
-                                                            style: TextStyle(
-                                                                fontFamily:
-                                                                    'mulilight',
-                                                                fontSize: 11),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    ),
-                                                    Icon(
-                                                      FontAwesomeIcons
-                                                          .caretRight,
-                                                      size: 16,
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                              Container(
-                                                width: 35,
-                                                padding:
-                                                    const EdgeInsets.all(0),
-                                                decoration: BoxDecoration(),
-                                                child: Image.asset(
-                                                  "assets/icon_banner_point.png",
-                                                ),
-                                              ),
-                                            ],
+                                          Icon(
+                                            FontAwesomeIcons.caretRight,
+                                            size: 16,
                                           )
                                         ],
-                                      ))
-                                ]),
-                          )
-                        ],
-                      ),
-                    ),
-                    //==========================================================================
-                    Container(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: Column(children: [
-                          Container(
-                            width: double.infinity,
-                            child: Text(
-                              "Our Service".tr,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontFamily: 'neosansbold',
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            child: Text(
-                              "Consulting Your Life".tr,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontFamily: 'muli',
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ])),
-                    Container(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Obx(
-                        () {
-                          if (_mainController.listCategory.length == 0) {
-                            return Center(
-                              child: SizedBox(
-                                height: 50,
-                                width: 50,
-                                child: SpinKitFadingCircle(
-                                  color: mainColor,
-                                ),
-                              ),
-                            );
-                          } else {
-                            return GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 4, mainAxisSpacing: 20),
-                                itemCount: _mainController.listCategory.length,
-                                itemBuilder: (context, i) {
-                                  if (i < 7) {
-                                    return Expanded(
-                                      child: InkWell(
-                                        onTap: () {
-                                          Navigator.of(context)
-                                              .push(new MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      new ListConselor()))
-                                              .then((result) {
-                                            if (result != "") {
-                                              debugPrint(result);
-                                            }
-                                          });
-                                        },
-                                        child: iconmenu(
-                                            context,
-                                            _mainController
-                                                .listCategory[i].image,
-                                            "type",
-                                            _mainController
-                                                .listCategory[i].name),
                                       ),
-                                    );
-                                  }
-                                  return Expanded(
-                                    child: InkWell(
-                                      onTap: () {
-                                        _controller.isOpened
-                                            ? _controller.hide()
-                                            : _controller.show();
-                                      },
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Center(
-                                              child: Container(
-                                                  width: 60,
-                                                  height: 60,
-                                                  decoration: BoxDecoration(
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          color: Colors.grey
-                                                              .withOpacity(0.2),
-                                                          spreadRadius: 0.8,
-                                                          blurRadius: 8,
-                                                          offset: Offset(2,
-                                                              6), // changes position of shadow
-                                                        ),
-                                                      ],
-                                                      color: Colors.white,
-                                                      border: Border.all(
-                                                        color: Colors.white,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.all(
-                                                              Radius.circular(
-                                                                  35))),
-                                                  child: Center(
-                                                    child: Image.asset(
-                                                      'assets/icon_menu8.png',
-                                                      width: 35,
-                                                    ),
-                                                  )),
-                                            ),
-                                            Container(
-                                              margin: const EdgeInsets.only(
-                                                  top: 10),
-                                              child: Text("All".tr,
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontFamily: 'mulibold',
-                                                      fontSize: 12)),
-                                            )
-                                          ]),
                                     ),
-                                  );
-                                });
-                          }
-                        },
-                      ),
-                    ),
-
-                    //==========================================================================
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(children: [
-                              Container(
-                                width: double.infinity,
-                                child: Text(
-                                  "Promo",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: 'neosansbold',
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                child: Text(
-                                  "Consulting Your Life".tr,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: 'muli',
-                                    fontSize: 12,
-                                  ),
-                                ),
-                              ),
-                            ]),
-                          ),
-                          Expanded(
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    child: Text(
-                                      "See All".tr,
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                          fontFamily: 'mulibold',
-                                          fontSize: 12,
-                                          color: mainColor),
+                                    Container(
+                                      width: 35,
+                                      padding: const EdgeInsets.all(0),
+                                      decoration: BoxDecoration(),
+                                      child: Image.asset(
+                                        "assets/icon_banner_point.png",
+                                      ),
                                     ),
-                                  ),
-                                ]),
-                          )
-                        ],
-                      ),
-                    ),
-                    //==========================================================================
-
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 10, right: 10, top: 15),
-                      width: double.infinity,
-                      child: new SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(children: [
-                          promoview(),
-                          promoview(),
-                          promoview(),
-                          promoview(),
-                          promoview(),
-                        ]),
-                      ),
-                    ),
-
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 10, right: 10, top: 15),
-                      width: double.infinity,
-                      child: new SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(children: [
-                          promoview2("Married".tr),
-                          promoview2("Parenting".tr),
-                          promoview2("Family".tr),
-                          promoview2("Self".tr),
-                          promoview2("Business".tr),
-                          promoview2("Addictive".tr),
-                        ]),
-                      ),
-                    ),
-
-                    //=========================R=================================================
-                    //
-                    Container(
-                      margin: const EdgeInsets.only(top: 20),
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Column(children: [
-                              Container(
-                                width: double.infinity,
-                                child: Text(
-                                  "News".tr,
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontFamily: 'neosansbold',
-                                    fontSize: 20,
-                                  ),
-                                ),
-                              ),
-                            ]),
-                          ),
-                          Expanded(
-                            child: Column(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    width: double.infinity,
-                                    child: Text(
-                                      "See All".tr,
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(
-                                          fontFamily: 'mulibold',
-                                          fontSize: 12,
-                                          color: mainColor),
-                                    ),
-                                  ),
-                                ]),
-                          )
-                        ],
-                      ),
-                    ),
-                    //===================================================================================
-                    //
-                    Container(
-                      margin:
-                          const EdgeInsets.only(left: 10, right: 10, top: 15),
-                      width: double.infinity,
-                      child: new SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(children: [
-                          exploreview(context, "How using WinLife".tr),
-                          exploreview(context, "consultation".tr),
-                          exploreview(context, "Chat"),
-                          exploreview(context, "Video"),
-                          exploreview(context, "Service".tr),
-                        ]),
-                      ),
-                    ),
-                  ])),
-                ),
-              )
-            ],
+                                  ],
+                                )
+                              ],
+                            ))
+                      ]),
+                )
+              ],
+            ),
           ),
-        ),
+          //==========================================================================
+          Container(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              child: Column(children: [
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    "Our Service".tr,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontFamily: 'neosansbold',
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Text(
+                    "Consulting Your Life".tr,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontFamily: 'muli',
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+              ])),
+          Container(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Obx(
+              () {
+                if (_mainController.listCategory.length == 0) {
+                  return Center(
+                    child: SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: SpinKitFadingCircle(
+                        color: mainColor,
+                      ),
+                    ),
+                  );
+                } else {
+                  return GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4, mainAxisSpacing: 20),
+                      itemCount: _mainController.listCategory.length,
+                      itemBuilder: (context, i) {
+                        if (i < 7) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.of(context)
+                                  .push(new MaterialPageRoute(
+                                      builder: (context) => new ListConselor()))
+                                  .then((result) {
+                                if (result != "") {
+                                  debugPrint(result);
+                                }
+                              });
+                            },
+                            child: iconmenu(
+                                context,
+                                _mainController.listCategory[i].image,
+                                "type",
+                                _mainController.listCategory[i].name),
+                          );
+                        }
+                        return Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              _controller.isOpened
+                                  ? _controller.hide()
+                                  : _controller.show();
+                            },
+                            child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Center(
+                                    child: Container(
+                                        width: 60,
+                                        height: 60,
+                                        decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.2),
+                                                spreadRadius: 0.8,
+                                                blurRadius: 8,
+                                                offset: Offset(2,
+                                                    6), // changes position of shadow
+                                              ),
+                                            ],
+                                            color: Colors.white,
+                                            border: Border.all(
+                                              color: Colors.white,
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(35))),
+                                        child: Center(
+                                          child: Image.asset(
+                                            'assets/icon_menu8.png',
+                                            width: 35,
+                                          ),
+                                        )),
+                                  ),
+                                  Container(
+                                    margin: const EdgeInsets.only(top: 10),
+                                    child: Text("All".tr,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontFamily: 'mulibold',
+                                            fontSize: 12)),
+                                  )
+                                ]),
+                          ),
+                        );
+                      });
+                }
+              },
+            ),
+          ),
+
+          //==========================================================================
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(children: [
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "Promo",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'neosansbold',
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "Consulting Your Life".tr,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'muli',
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ]),
+                ),
+                Expanded(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          child: Text(
+                            "See All".tr,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontFamily: 'mulibold',
+                                fontSize: 12,
+                                color: mainColor),
+                          ),
+                        ),
+                      ]),
+                )
+              ],
+            ),
+          ),
+          //==========================================================================
+
+          Container(
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 15),
+            width: double.infinity,
+            child: new SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                promoview(),
+                promoview(),
+                promoview(),
+                promoview(),
+                promoview(),
+              ]),
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 15),
+            width: double.infinity,
+            child: new SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                promoview2("Married".tr),
+                promoview2("Parenting".tr),
+                promoview2("Family".tr),
+                promoview2("Self".tr),
+                promoview2("Business".tr),
+                promoview2("Addictive".tr),
+              ]),
+            ),
+          ),
+
+          //=========================R=================================================
+          //
+          Container(
+            margin: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(children: [
+                    Container(
+                      width: double.infinity,
+                      child: Text(
+                        "News".tr,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'neosansbold',
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ]),
+                ),
+                Expanded(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          child: Text(
+                            "See All".tr,
+                            textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontFamily: 'mulibold',
+                                fontSize: 12,
+                                color: mainColor),
+                          ),
+                        ),
+                      ]),
+                )
+              ],
+            ),
+          ),
+          //===================================================================================
+          //
+          Container(
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 15),
+            width: double.infinity,
+            child: new SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(children: [
+                exploreview(context, "How using WinLife".tr),
+                exploreview(context, "consultation".tr),
+                exploreview(context, "Chat"),
+                exploreview(context, "Video"),
+                exploreview(context, "Service".tr),
+              ]),
+            ),
+          ),
+        ])),
       ),
       bottomSheet: SolidBottomSheet(
         maxHeight: 500,
