@@ -1,0 +1,92 @@
+const Map<String, String> idID = {
+  'welcome': 'Selamat Datang di Winlife',
+  'welcome sub':
+  'Kami membantu Anda menemukan solusi untuk masalah Anda, karena Anda berharga & lebih dari pemenang!',
+  'login': 'Masuk',
+  'register': 'Daftar',
+  'or continue with': 'atau lanjutkan dengan',
+  'facebook': 'Lanjutkan dengan Facebook',
+  'google': 'Lanjutkan dengan Google',
+  'byLogin': 'Dengan Masuk atau Mendaftar, Anda setuju kepada',
+  'terms': 'Persyaratan Layanan ',
+  'and': 'dan ',
+  'privacy': 'Kebijakan pribadi',
+  'pilih bahasa': 'Pilih bahasa Anda',
+  'PASSWORD': 'KATA SANDI',
+  'CONTINUE': 'LANJUTKAN',
+  'no akun': "Tidak punya akun?",
+  'here': 'disini',
+  'forgot': 'Lupa Password',
+  'NAME': 'NAMA',
+  'MOBILE NUMBER': 'NOMOR TELEPON',
+  //lupa password
+  'already': 'Sudah punya akun? ',
+  'input code': 'Masukan kode untuk ke tahap selanjutnya ',
+  'enter email and send reset':
+  'Silahkan masukkan alamat email anda \nKami akan mengirimkan kode reset untuk mengubah kata sandi anda',
+  'CODE': 'KODE ',
+  'enter text': 'Silahkan isi dengan beberapa text',
+  'find password': 'Temukan kata sandi anda? ',
+  'Login Here': 'Login disini',
+  'Forgot your password': 'Lupa \nKata sandi anda?',
+  'EMAIL ADDRESS': 'Alamat Email',
+  'Input Password': 'Masukan kata sandi',
+  //history
+  'History': 'Riwayat',
+  'Empty': 'Kosong',
+  'Reload': 'Muat ulang',
+  'Problem': 'Masalah: ',
+  //home
+  'Find News': 'Temukan Berita, Service...',
+  'Account': 'Akun',
+  'News': 'Berita',
+  'Reward': 'Hadian',
+  'MyPoint': 'Poin ku',
+  'Point': ' Poin',
+  'Our Service': 'Layanan Kami',
+  'Consulting Your Life': 'Konsultasi kehidupan anda',
+  'All': 'Semua',
+  'See All': 'Lihat Semua',
+  'Married': 'Pernikahan',
+  'Parenting': 'Mendidik Anak',
+  'Family': 'Keluarga',
+  'Self': 'Diri Sendiri',
+  'Business': 'Bisnis',
+  'Addictive': 'Ketergantungan',
+  'How using WinLife': 'Bagaimana cara menggunakan WinLife',
+  'consultation': 'Konsultasi',
+  'Service': 'Layananan',
+  'Your Favorites': 'Favoritmu ',
+
+  //profile
+  'Profile': 'Profil',
+  'Menu Profile': 'Menu Profil',
+  'Change Password': 'Rubah kata sandi',
+  'My Voucher': 'Voucher saya',
+  'Help Center': 'Pusat Bantuan',
+  'Privacy Policy': 'Kebijakan Privasi',
+  'Logout': 'Keluar',
+
+  //promo
+  'I Want': 'Ya, Saya ingin',
+
+  //quick
+  'enter data': 'Silahkan masukan data dibawah ini : ',
+  'select consult': 'Pilih tipe konsultasi : ',
+  'Payment terms': 'Termin Pembayaran',
+  'Select Service': 'Pilih Layanan : ',
+  'Input Problem': 'Silahkan masukan masalah anda : ',
+  'Find a Counselor': 'Cari konselor',
+  'Choose Service below': 'Pilih layanan dibawah ini : ',
+  'Minute': 'Menit',
+
+  //detail conselor
+  'Detail Counselor': 'Detail konselor',
+  'Specialist': 'Spesialis : ',
+  'Location': 'Lokasi : ',
+  'About': 'Tentang : ',
+  'Start With': 'Dimulai dari : ',
+
+//dasboard
+  'Home': 'Beranda',
+};

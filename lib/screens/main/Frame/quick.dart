@@ -76,7 +76,7 @@ class _FrameQuickState extends State<FrameQuick> {
 
                         Container(
                           width: double.infinity,
-                          child: Text("select consult"),
+                          child: Text("select consult".tr),
                         ),
                         Row(
                           children: [

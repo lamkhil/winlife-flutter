@@ -1,0 +1,93 @@
+const Map<String, String> enUS = {
+  'welcome': 'Welcome To WinLife',
+  'welcome sub':
+  'We help you to find solution for your problem,\nbecause you are valueable & more than winner!',
+  'login': 'Login',
+  'register': 'Register',
+  'or continue with': 'or continue with',
+  'facebook': 'Continue With Facebook',
+  'google': 'Continue With Google',
+  'byLogin': 'By Logging in or Registering, you agree to',
+  'terms': 'Terms of Service',
+  'and': 'And ',
+  'privacy': 'Privacy Policy',
+  'pilih bahasa': 'Choose your language',
+  'PASSWORD': 'PASSWORD',
+  'CONTINUE': 'CONTINUE',
+  'no akun': "Don't have an account?",
+  'here': 'here',
+  'forgot': 'Forgot Password',
+  'NAME': 'NAME',
+  'MOBILE NUMBER': 'MOBILE NUMBER',
+  'already': 'Already have an account? ',
+  //lupa password
+  'input code': 'Input your code to continue ',
+  'enter email and send reset':
+  "Please enter your email Address \nwe'all send your reset code to change your password",
+  'CODE': 'CODE ',
+  'enter text': 'Please enter some text',
+  'find password': 'Find your password? ',
+  'Login Here': 'Login Here',
+  'Forgot your password': 'Forgot \nYour Password?',
+  'EMAIL ADDRESS': 'EMAIL ADDRESS',
+  'Input Password': 'Input Password',
+  //history
+  'History': 'History',
+  'Empty': 'Empty',
+  'Reload': 'Reload',
+  'Problem': 'Problem: ',
+  //home
+  'Find News': 'Find News, Service...',
+  'Account': 'Account',
+  'News': 'News',
+  'Reward': 'Reward',
+  'MyPoint': 'My Points',
+  'Point': ' Points',
+  'Our Service': 'Our Service',
+  'Consulting Your Life': 'Consulting Your Life',
+  'All': 'All',
+  'See All': 'See All',
+  'Married': 'Married',
+  'Parenting': 'Parenting',
+  'Family': 'Family',
+  'Self': 'Self',
+  'Business': 'Business',
+  'Addictive': 'Addictive',
+  'How using WinLife': 'How using WinLife',
+  'consultation': 'Consultation',
+  'Service': 'Service',
+  'Your Favorites': 'Your Favorites ',
+
+  //profile
+  'Profile': 'Profile',
+  'Menu Profile': 'Menu Profile',
+  'Change Password': 'Change Password',
+  'My Voucher': 'My Voucher',
+  'Withdraw': 'Withdraw',
+  'Help Center': 'Help Center',
+  'Privacy Policy': 'Privacy Policy',
+  'Logout': 'Logout',
+
+  //promo
+  'I Want': 'Yes, I Want',
+
+  //quick
+  'enter data': 'Please enter the data below : ',
+  'select consult': 'Select Consultation Type : ',
+  'Payment terms': 'Payment terms',
+  'Select Service': 'Select Service : ',
+  'Input Problem': 'Please Input Your Problem : ',
+  'Find a Counselor': 'Find a Counselor',
+  'Choose Service below': 'Choose a service below : ',
+  'Minute': 'Minute',
+
+  //detail conselor
+  'Detail Counselor': 'Counselor details',
+  'Specialist': 'Specialist : ',
+  'Location': 'Location : ',
+  'About': 'About : ',
+  'Start With': 'Start With : ',
+
+  //dasboard
+  'Home': 'Home',
+};

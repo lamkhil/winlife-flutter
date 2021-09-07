@@ -268,7 +268,7 @@ class _FrameProfilState extends State<FrameProfile> {
                                                 )),
                                             Expanded(
                                               child: Text(
-                                                "Change Password",
+                                                "Change Password".tr,
                                                 style: TextStyle(
                                                     fontFamily: "MuliBold",
                                                     fontWeight:
