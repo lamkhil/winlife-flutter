@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:solid_bottom_sheet/solid_bottom_sheet.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/main_controller.dart';
-import 'package:winlife/data/model/category_model.dart';
 import 'package:winlife/routes/app_routes.dart';
 import 'package:winlife/screens/main/service/list_conselor.dart';
 
@@ -288,23 +287,25 @@ class _FrameHomeState extends State<FrameHome> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.center,
                                                   children: [
-                                                    Row(
-                                                      children: [
-                                                        Text(
-                                                          "2,000",
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'neosansbold',
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          "Point".tr,
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'mulilight',
-                                                              fontSize: 11),
-                                                        )
-                                                      ],
+                                                    FittedBox(
+                                                      child: Row(
+                                                        children: [
+                                                          Text(
+                                                            "2,000",
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'neosansbold',
+                                                                fontSize: 13),
+                                                          ),
+                                                          Text(
+                                                            "Point".tr,
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'mulilight',
+                                                                fontSize: 11),
+                                                          )
+                                                        ],
+                                                      ),
                                                     ),
                                                     Icon(
                                                       FontAwesomeIcons
@@ -389,8 +390,7 @@ class _FrameHomeState extends State<FrameHome> {
                                           Navigator.of(context)
                                               .push(new MaterialPageRoute(
                                                   builder: (context) =>
-                                                      new ListConselor(
-                                                          )))
+                                                      new ListConselor()))
                                               .then((result) {
                                             if (result != "") {
                                               debugPrint(result);
