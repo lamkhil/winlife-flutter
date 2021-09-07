@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:winlife/constant/color.dart';
@@ -27,6 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
     FrameProfile()
   ];
   var _currentIndex = 0;
+  late StreamSubscription<RemoteMessage> subForeground;
 
   final AuthController _authController = Get.find();
 
@@ -42,12 +45,18 @@ class _DashboardPageState extends State<DashboardPage> {
     FCM.messaging.onTokenRefresh.listen((event) {
       FCM.saveTokenToDatabase(event, _authController.user.email);
     });
-    FCM.onMessage.listen((RemoteMessage message) {
+    subForeground = FCM.onMessage.listen((RemoteMessage message) {
       if (message.notification != null) {
         customDialog(context, message.data['title'].toString(),
             message.data['body'].toString());
       }
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    subForeground.cancel();
   }
 
   @override

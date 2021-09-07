@@ -26,6 +26,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     var ls = MediaQuery.of(context).devicePixelRatio;
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+        ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child: Container(
