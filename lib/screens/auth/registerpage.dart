@@ -96,6 +96,10 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     var ls = MediaQuery.of(context).devicePixelRatio;
     return Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+        ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
             child: Container(

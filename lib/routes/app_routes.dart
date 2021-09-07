@@ -10,4 +10,5 @@ abstract class Routes {
   static const OTP = '/otp';
   static const WEBVIEW = '/webview';
   static const LISTCONSELOR = '/listconselor';
+  static const STARTDETAIL = '/startdetail';
 }
