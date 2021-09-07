@@ -134,7 +134,7 @@ class _FrameQuickState extends State<FrameQuick> {
                                   Expanded(
                                     child: id_layanan == ''
                                         ? Text(
-                                            "Select Services".tr,
+                                            "Select Service".tr,
                                             style: TextStyle(
                                                 fontFamily: 'neosansbold',
                                                 fontSize: 18),

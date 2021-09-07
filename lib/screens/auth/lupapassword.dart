@@ -257,7 +257,7 @@ class _LupaPasswordPageState extends State<LupaPasswordPage> {
                         padding: const EdgeInsets.only(left: 5, right: 10),
                         width: double.infinity,
                         child: Text(
-                          "EMAIL ADDRESS ".tr,
+                          "EMAIL ADDRESS".tr,
                           textAlign: TextAlign.left,
                           style:
                               TextStyle(fontFamily: "mulilight", fontSize: 12),

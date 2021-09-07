@@ -146,12 +146,12 @@ const Map<String, String> enUS = {
   //lupa password
   'input code': 'Input your code to continue ',
   'enter email and send reset':
-      "Please enter your email Address \n we'all send your reset code to change your password",
+      "Please enter your email Address \nwe'all send your reset code to change your password",
   'CODE': 'CODE ',
   'enter text': 'Please enter some text',
   'find password': 'Find your password? ',
   'Login Here': 'Login Here',
-  'Forgot your password': 'Forgot \n Your Password?',
+  'Forgot your password': 'Forgot \nYour Password?',
   'EMAIL ADDRESS': 'EMAIL ADDRESS',
   'Input Password': 'Input Password',
   //history
