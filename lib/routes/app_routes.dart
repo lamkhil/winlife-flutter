@@ -12,6 +12,9 @@ abstract class Routes {
   static const LISTCONSELOR = '/listconselor';
   static const STARTDETAIL = '/startdetail';
   static const DETAILORDER = '/detailorder';
+  static const WAITINGCHAT = '/waitingchat';
+  static const WAITINGCALL = '/waitingcall';
+  static const WAITINGVIDCALL = '/waitingvidcall';
   static const CALLSCREEN = '/callscreen';
   static const CHATSCREEN = '/chatscreen';
 }

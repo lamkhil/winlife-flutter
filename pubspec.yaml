@@ -59,6 +59,8 @@ dependencies:
   mime: ^1.0.0
   open_file: ^3.2.1
   uuid: ^3.0.4
+  #service
+  quickblox_sdk: ^0.6.0-beta
 
 flutter_icons:
     android: "launcher_icon"
