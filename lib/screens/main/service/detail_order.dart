@@ -281,11 +281,11 @@ class _DetailOrderState extends State<DetailOrder> {
                                     switch ((args['type'] as String)
                                         .toLowerCase()) {
                                       case 'chat':
-                                        Get.offNamedUntil(Routes.CHATSCREEN,
+                                        Get.offNamedUntil(Routes.WAITINGCHAT,
                                             ModalRoute.withName(Routes.MAIN));
                                         break;
                                       case 'phone':
-                                        Get.offNamedUntil(Routes.CALLSCREEN,
+                                        Get.offNamedUntil(Routes.STARTDETAIL,
                                             ModalRoute.withName(Routes.MAIN));
                                         break;
                                       default:
@@ -293,7 +293,7 @@ class _DetailOrderState extends State<DetailOrder> {
                                     }
                                   },
                                   child: Text(
-                                    "Send Request Now",
+                                    "Continue",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontFamily: 'neosansbold',

@@ -165,6 +165,7 @@ class AuthController extends GetxController {
 
   logout() {
     storage.erase();
+    FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LANDING);
   }
 }

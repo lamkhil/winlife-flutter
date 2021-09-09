@@ -30,8 +30,9 @@ class QBController extends GetxController {
         enableAutoReconnect(),
         enableCarbons(),
         cekSessionUser(),
-        loginQB(),
       ]);
+
+      await loginQB();
     } catch (e) {
       print(e);
     }
@@ -41,7 +42,7 @@ class QBController extends GetxController {
     try {
       QBSession? session = await QB.auth.getSession();
       if (session != null) {
-        setSession(session);
+        setSession = session;
       }
     } on PlatformException catch (e) {
       // Some error occurred, look at the exception message for more details
@@ -80,7 +81,7 @@ class QBController extends GetxController {
   Future<void> loginQB() async {
     var cekUser = await cekUserQB(_authController.user.email);
     if (cekUser.isEmpty) {
-      registerQB(_authController.user.email, _authController.user.email);
+      await registerQB(_authController.user.email, _authController.user.email);
     }
     try {
       QBLoginResult result = await QB.auth
@@ -122,7 +123,7 @@ class QBController extends GetxController {
     } on PlatformException catch (e) {
       print(e);
     }
-    return userList;
+    return userList.where((element) => element!.fullName == login).toList();
   }
 
   static QBController getInstance() {
@@ -132,19 +133,15 @@ class QBController extends GetxController {
     return _instance!;
   }
 
-  void setSession(QBSession? session) {
+  set setSession(QBSession? session) {
     this._session = session;
   }
 
-  Future<QBSession?> getSession() async {
-    return _session;
-  }
+  QBSession? get qbSession => _session;
 
-  void setUser(QBUser? qbUser) {
+  set setUser(QBUser? qbUser) {
     this._qbUser = qbUser;
   }
 
-  QBUser? getUser() {
-    return _qbUser;
-  }
+  QBUser? get qbUser => _qbUser;
 }

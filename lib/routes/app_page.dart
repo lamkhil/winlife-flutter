@@ -62,8 +62,8 @@ class AppPages {
     GetPage(name: Routes.CALLSCREEN, page: () => CallScreen()),
     GetPage(name: Routes.CHATSCREEN, page: () => ChatScreen()),
     GetPage(
-        name: Routes.WAITINGCALL,
-        page: () => WaitingScreen(),
+        name: Routes.STARTDETAIL,
+        page: () => StartDetail(),
         binding: ChatBindings()),
     GetPage(
         name: Routes.WAITINGCHAT,
