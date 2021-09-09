@@ -10,6 +10,7 @@ import 'package:winlife/data/model/conselor_model.dart';
 import 'package:winlife/data/model/duration_model.dart';
 import 'package:winlife/data/provider/FCM.dart';
 import 'package:winlife/routes/app_routes.dart';
+import 'package:winlife/screens/widget/dialog.dart';
 import 'package:winlife/screens/widget/loader_dialog.dart';
 
 class DetailOrder extends StatefulWidget {
@@ -342,8 +343,19 @@ class _DetailOrderState extends State<DetailOrder> {
                                 }
                                 break;
                               case 'phone':
-                                Get.offNamedUntil(Routes.WAITINGCALL,
-                                    ModalRoute.withName(Routes.MAIN));
+                                loaderDialog(
+                                    context,
+                                    SpinKitFadingCircle(
+                                      color: mainColor,
+                                    ),
+                                    "Please Wait");
+                                var resFCM = await FCM.send(fcmToken, data);
+                                Navigator.pop(Get.overlayContext!);
+                                customDialog(context, 'aa', resFCM['success'].toString());
+                                if (resFCM['success'] == 1) {
+                                  Get.offNamedUntil(Routes.WAITINGCALL,
+                                      ModalRoute.withName(Routes.MAIN));
+                                }
                                 break;
                               default:
                                 Navigator.pop(context);

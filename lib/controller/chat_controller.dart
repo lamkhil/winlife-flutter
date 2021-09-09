@@ -6,14 +6,20 @@ import 'package:quickblox_sdk/chat/constants.dart';
 import 'package:quickblox_sdk/models/qb_attachment.dart';
 import 'package:quickblox_sdk/models/qb_dialog.dart';
 import 'package:quickblox_sdk/quickblox_sdk.dart';
-import 'package:winlife/controller/auth_controller.dart';
+import 'package:uuid/uuid.dart';
+import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:winlife/controller/quickblox_controller.dart';
+import 'package:winlife/data/model/user_model.dart';
+
+import 'auth_controller.dart';
 
 class ChatController extends GetxController {
   final QBController _qbController = Get.find();
   final AuthController _authController = Get.find();
   QBDialog? dialog;
+  String? dialogId;
   String? _messageId;
+  Map<dynamic, dynamic> payload = {}.obs;
   StreamSubscription? _newMessageSubscription;
   StreamSubscription? _systemMessageSubscription;
   StreamSubscription? _deliveredMessageSubscription;
@@ -24,7 +30,9 @@ class ChatController extends GetxController {
   StreamSubscription? _connectionClosedSubscription;
   StreamSubscription? _reconnectionFailedSubscription;
   StreamSubscription? _reconnectionSuccessSubscription;
-
+  RxList<types.Message> messages = RxList<types.Message>();
+  UserData? opponent;
+  var opponentAuthor;
   @override
   Future<void> onInit() async {
     super.onInit();
@@ -72,6 +80,22 @@ class ChatController extends GetxController {
     return connected;
   }
 
+  Future<void> sendMessage(String message) async {
+    List<QBAttachment>? attachments = [];
+    Map<String, String>? properties = Map();
+    bool markable = false;
+    String dateSent = "DateTime.now().toString()";
+    bool saveToHistory = true;
+
+    try {
+      await QB.chat.sendMessage(dialogId.toString(),
+          body: message, markable: markable, saveToHistory: saveToHistory);
+    } on PlatformException catch (e) {
+      // Some error occurred, look at the exception message for more details
+      print(e);
+    }
+  }
+
   Future<void> createDialog(int opponentID) async {
     List<int> occupantsIds = [opponentID];
     String dialogName = "FLUTTER_CHAT_" + DateTime.now().millisecond.toString();
@@ -95,22 +119,6 @@ class ChatController extends GetxController {
     }
   }
 
-  Future<void> sendMessage(String message) async {
-    List<QBAttachment>? attachments = [];
-    Map<String, String>? properties = Map();
-    bool markable = false;
-    String dateSent = "DateTime.now().toString()";
-    bool saveToHistory = true;
-
-    try {
-      await QB.chat.sendMessage(dialog!.id!,
-          body: message, markable: markable, saveToHistory: saveToHistory);
-    } on PlatformException catch (e) {
-      // Some error occurred, look at the exception message for more details
-      print(e);
-    }
-  }
-
   void subscribeNewMessage() async {
     if (_newMessageSubscription != null) {
       return;
@@ -119,16 +127,22 @@ class ChatController extends GetxController {
       _newMessageSubscription = await QB.chat
           .subscribeChatEvent(QBChatEvents.RECEIVED_NEW_MESSAGE, (data) {
         Map<dynamic, dynamic> map = Map<dynamic, dynamic>.from(data);
-
-        Map<dynamic, dynamic> payload =
-            Map<dynamic, dynamic>.from(map["payload"]);
+        print(map);
+        payload = Map<dynamic, dynamic>.from(map["payload"]);
         _messageId = payload["id"] as String;
         print("Received message: \n ${payload["body"]}");
-        print(payload);
+        final textMessage = types.TextMessage(
+          author: opponentAuthor,
+          createdAt: DateTime.now().millisecondsSinceEpoch,
+          id: const Uuid().v4(),
+          text: payload["body"],
+        );
+        if (payload['senderId'] != _qbController.qbUser!.id) {
+          messages.insert(0, textMessage);
+        }
       }, onErrorMethod: (error) {
         print(error);
       });
-      print("Subcribe new message");
     } on PlatformException catch (e) {
       print(e);
     }
@@ -144,7 +158,7 @@ class ChatController extends GetxController {
         Map<dynamic, dynamic> map = Map<dynamic, dynamic>.from(data);
 
         Map<dynamic, dynamic> payload =
-            Map<dynamic, dynamic>.from(map["payload"]);
+        Map<dynamic, dynamic>.from(map["payload"]);
 
         _messageId = payload["id"];
 

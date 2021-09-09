@@ -1,8 +1,13 @@
-import 'dart:convert';
+import 'dart:async';
+import 'dart:convert' as convert;
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
+import 'package:winlife/data/provider/FCM.dart';
+import 'package:winlife/routes/app_routes.dart';
 
 class WaitingScreen extends StatefulWidget {
   const WaitingScreen({Key? key}) : super(key: key);
@@ -23,8 +28,43 @@ class _WaitingScreenState extends State<WaitingScreen> {
 
   Future<void> _refresh() async {}
 
+  late StreamSubscription<RemoteMessage> onMessegeSub;
+  late StreamSubscription<RemoteMessage> onMessegeOpenedAppSub;
+
   @override
   void initState() {
+    onMessegeSub = FCM.onMessage.listen((RemoteMessage message) {
+      print(message.data);
+      switch (message.data['type'].toString().toLowerCase()) {
+        case 'chat':
+          Get.toNamed(Routes.CHATSCREEN, arguments: message.data);
+          break;
+        case 'phone':
+          Get.toNamed(Routes.CALLSCREEN, arguments: message.data);
+          break;
+        case 'vidcall':
+          break;
+        case 'meet':
+          break;
+        default:
+      }
+    });
+    onMessegeOpenedAppSub = FCM.onMessage.listen((RemoteMessage message) {
+      print(message.data);
+      switch (message.data['type'].toString().toLowerCase()) {
+        case 'chat':
+          Get.toNamed(Routes.CHATSCREEN, arguments: message.data);
+          break;
+        case 'phone':
+          Get.toNamed(Routes.CALLSCREEN, arguments: message.data);
+          break;
+        case 'vidcall':
+          break;
+        case 'meet':
+          break;
+        default:
+      }
+    });
     super.initState();
   }
 

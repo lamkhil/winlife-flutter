@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:winlife/constant/color.dart';
 import 'package:winlife/controller/auth_controller.dart';
+import 'package:winlife/controller/rtc_controller.dart';
 
 class CallScreen extends StatefulWidget {
   const CallScreen({Key? key}) : super(key: key);
@@ -13,6 +14,16 @@ class CallScreen extends StatefulWidget {
 
 class _CallScreenState extends State<CallScreen> {
   final AuthController _authController = Get.find();
+  final RTCController _rtcController = Get.find();
+  var args = Get.arguments;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _rtcController.acceptWebRTC(args['session']);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

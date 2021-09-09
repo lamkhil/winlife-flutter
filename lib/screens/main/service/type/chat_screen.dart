@@ -1,48 +1,56 @@
-import 'dart:convert';
+import 'dart:convert' as convert;
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mime/mime.dart';
 import 'package:open_file/open_file.dart';
 import 'package:uuid/uuid.dart';
 import 'package:winlife/constant/color.dart';
-
-class ChatScreen extends StatelessWidget {
+import 'package:winlife/controller/auth_controller.dart';
+import 'package:winlife/controller/chat_controller.dart';
+import 'package:winlife/data/model/user_model.dart';
+import 'package:winlife/screens/widget/dialog.dart';
+class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ChatPage(),
-    );
-  }
+  _ChatScreenState createState() => _ChatScreenState();
 }
 
-class ChatPage extends StatefulWidget {
-  const ChatPage({Key? key}) : super(key: key);
+class _ChatScreenState extends State<ChatScreen> {
+  final AuthController _authController = Get.find();
+  var _user;
 
-  @override
-  _ChatPageState createState() => _ChatPageState();
-}
-
-class _ChatPageState extends State<ChatPage> {
+  var args = Get.arguments;
   List<types.Message> _messages = [];
-  final _user = const types.User(id: '06c33e8b-e835-4736-80f4-63f44b66666c');
+  final ChatController _chatController = Get.find();
 
   @override
   void initState() {
     super.initState();
+    _chatController.dialogId = args['dialogId'];
+    var opponent = convert.jsonDecode(args['user']);
     _loadMessages();
+    _user = types.User(
+        id: _authController.user.id, firstName: _authController.user.fullName);
+    _chatController.opponent = UserData.fromJson(opponent, " ");
+    _chatController.opponentAuthor = types.User(
+        id: _chatController.opponent!.uid,
+        firstName: _chatController.opponent!.fullName);
+    _chatController.messages.listen((value) {
+      setState(() {
+        _messages = value;
+      });
+    });
   }
 
   void _addMessage(types.Message message) {
-    setState(() {
-      _messages.insert(0, message);
-    });
+    _chatController.messages.insert(0, message);
   }
 
   void _handleAtachmentPressed() {
@@ -143,15 +151,17 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _handlePreviewDataFetched(
-    types.TextMessage message,
-    types.PreviewData previewData,
-  ) {
-    final index = _messages.indexWhere((element) => element.id == message.id);
-    final updatedMessage = _messages[index].copyWith(previewData: previewData);
+      types.TextMessage message,
+      types.PreviewData previewData,
+      ) {
+    final index = _chatController.messages
+        .indexWhere((element) => element.id == message.id);
+    final updatedMessage =
+    _chatController.messages[index].copyWith(previewData: previewData);
 
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {
-        _messages[index] = updatedMessage;
+        _chatController.messages[index] = updatedMessage;
       });
     });
   }
@@ -163,7 +173,7 @@ class _ChatPageState extends State<ChatPage> {
       id: const Uuid().v4(),
       text: message.text,
     );
-
+    _chatController.sendMessage(message.text);
     _addMessage(textMessage);
   }
 
@@ -197,7 +207,7 @@ class _ChatPageState extends State<ChatPage> {
               ),
               Expanded(
                 child: Text(
-                  'Robby Christhin',
+                  _chatController.opponent!.fullName,
                   style: TextStyle(
                     color: Colors.black,
                     fontFamily: 'neosansbold',
@@ -245,86 +255,86 @@ class _ChatPageState extends State<ChatPage> {
                         height: 90,
                         child: Card(
                             child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '12 August 2021',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      color: mainColor,
-                                      fontFamily: "neosansbold",
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: 13),
-                                ),
-                              ),
-                              VerticalDivider(
-                                width: 20,
-                              ),
-                              Container(
-                                child: Expanded(
-                                    child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    SizedBox(
-                                      height: 30,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Text',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontFamily: "neosansbold",
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 13),
-                                          ),
-                                          Text(
-                                            '60 Min',
-                                            style: TextStyle(
-                                                color: mainColor,
-                                                fontFamily: "neosansbold",
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 13),
-                                          ),
-                                        ],
-                                      ),
+                              padding: EdgeInsets.symmetric(horizontal: 15.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      '12 August 2021',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: mainColor,
+                                          fontFamily: "neosansbold",
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 13),
                                     ),
-                                    SizedBox(
-                                      height: 30.0,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Count Date',
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontFamily: "neosansbold",
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 13),
-                                          ),
-                                          Text(
-                                            '00:59',
-                                            style: TextStyle(
-                                                color: mainColor,
-                                                fontFamily: "neosansbold",
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 13),
-                                          ),
-                                        ],
-                                      ),
-                                    )
-                                  ],
-                                )),
-                              )
-                            ],
-                          ),
-                        ))))
+                                  ),
+                                  VerticalDivider(
+                                    width: 20,
+                                  ),
+                                  Container(
+                                    child: Expanded(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            SizedBox(
+                                              height: 30,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    'Text',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontFamily: "neosansbold",
+                                                        fontWeight: FontWeight.normal,
+                                                        fontSize: 13),
+                                                  ),
+                                                  Text(
+                                                    '60 Min',
+                                                    style: TextStyle(
+                                                        color: mainColor,
+                                                        fontFamily: "neosansbold",
+                                                        fontWeight: FontWeight.normal,
+                                                        fontSize: 13),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 30.0,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    'Count Date',
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontFamily: "neosansbold",
+                                                        fontWeight: FontWeight.normal,
+                                                        fontSize: 13),
+                                                  ),
+                                                  Text(
+                                                    '00:59',
+                                                    style: TextStyle(
+                                                        color: mainColor,
+                                                        fontFamily: "neosansbold",
+                                                        fontWeight: FontWeight.normal,
+                                                        fontSize: 13),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        )),
+                                  )
+                                ],
+                              ),
+                            ))))
               ],
             ),
           )),
