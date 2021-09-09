@@ -285,7 +285,7 @@ class _DetailOrderState extends State<DetailOrder> {
                                             ModalRoute.withName(Routes.MAIN));
                                         break;
                                       case 'phone':
-                                        Get.offNamedUntil(Routes.STARTDETAIL,
+                                        Get.offNamedUntil(Routes.WAITINGCALL,
                                             ModalRoute.withName(Routes.MAIN));
                                         break;
                                       default:
