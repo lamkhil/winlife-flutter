@@ -90,6 +90,7 @@ class QBController extends GetxController {
       _session = result.qbSession;
     } on PlatformException catch (e) {
       // Some error occurred, look at the exception message for more details
+      loginQB();
       print(e);
     }
   }

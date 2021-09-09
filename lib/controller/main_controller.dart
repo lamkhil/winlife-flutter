@@ -30,6 +30,7 @@ class MainController extends GetxController {
   Future<void> getAllDuration() async {
     var data = await HttpService.getAllDuration(_authController.user.token);
     listDuration.clear();
+    print(data);
     data['data']['duration_service'].forEach((element) {
       listDuration.add(DurationItem.fromJson(element));
     });

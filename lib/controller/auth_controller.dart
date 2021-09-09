@@ -23,6 +23,7 @@ class AuthController extends GetxController {
   final _user = Rx<UserData>(UserData.initial());
   UserData get user => _user.value;
   set user(UserData value) => _user.value = value;
+  var tokenFCM = "";
 
   register(BuildContext context, String name, String email, String password,
       String mobileNumber, double strengt,
@@ -124,7 +125,7 @@ class AuthController extends GetxController {
       return;
     }
     final userCollection =
-        FirebaseFirestore.instance.collection("users").doc(user.user!.uid);
+        FirebaseFirestore.instance.collection("users").doc(user.user!.email);
     final userDoc = await userCollection.get();
     if (userDoc.exists) {
       login(context, user.user!.email!, user.user!.uid);
@@ -133,7 +134,7 @@ class AuthController extends GetxController {
         'name': user.user!.displayName!,
         'email': user.user!.email!,
         'key': user.user!.uid,
-        'user': user.user!.uid
+        'user': user.user!.email
       });
       // register(context, user.user!.displayName!, user.user!.email!,
       //     user.user!.uid, "34", 0.5);
@@ -146,7 +147,7 @@ class AuthController extends GetxController {
       return;
     }
     final userCollection =
-        FirebaseFirestore.instance.collection("users").doc(user.user!.uid);
+        FirebaseFirestore.instance.collection("users").doc(user.user!.email);
     final userDoc = await userCollection.get();
     print([user.user!.displayName!, user.user!.email!, user.user!.uid]);
     if (userDoc.exists) {
@@ -156,7 +157,7 @@ class AuthController extends GetxController {
         'name': user.user!.displayName!,
         'email': user.user!.email!,
         'key': user.user!.uid,
-        'user': user.user!.uid
+        'user': user.user!.email
       });
       // register(context, user.user!.displayName!, user.user!.email!,
       //     user.user!.uid, "34", 0.5);

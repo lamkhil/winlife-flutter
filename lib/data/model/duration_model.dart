@@ -9,4 +9,9 @@ class DurationItem {
     return DurationItem(
         json['id'], json['duration_name'], json['duration_time']);
   }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'time': time,
+      };
 }

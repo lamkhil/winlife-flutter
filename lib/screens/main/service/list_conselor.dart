@@ -23,7 +23,7 @@ class _ListConselorState extends State<ListConselor> {
     await _mainController.getAllConselor();
   }
 
-  void consulNow(type, data) {
+  void consulNow(type, Conselor data) {
     Get.toNamed(Routes.DETAILORDER, arguments: {'type': type, 'data': data});
   }
 

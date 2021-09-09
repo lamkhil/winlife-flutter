@@ -283,44 +283,6 @@ class _WaitingScreenState extends State<WaitingScreen> {
                                 ),
                               ],
                             )),
-                            InkWell(
-                              onTap: () {},
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        spreadRadius: 0.8,
-                                        blurRadius: 5,
-                                        offset: Offset(
-                                            2, 5), // changes position of shadow
-                                      ),
-                                    ],
-                                    color: mainColor,
-                                    border: Border.all(
-                                      color: mainColor,
-                                    ),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
-                                padding: const EdgeInsets.all(13),
-                                margin:
-                                    const EdgeInsets.only(top: 20, bottom: 20),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Text(
-                                        "Mulai Konsultasi",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontFamily: 'neosansbold',
-                                            fontSize: 16,
-                                            color: Colors.white),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
                           ]),
                     ),
                   ),

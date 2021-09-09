@@ -42,15 +42,12 @@ class _DashboardPageState extends State<DashboardPage> {
   fcmInit() async {
     String? token = await FCM.messaging.getToken();
     await FCM.saveTokenToDatabase(token!, _authController.user.email);
+    _authController.tokenFCM = token;
     FCM.messaging.onTokenRefresh.listen((event) {
       FCM.saveTokenToDatabase(event, _authController.user.email);
+      _authController.tokenFCM = token;
     });
-    subForeground = FCM.onMessage.listen((RemoteMessage message) {
-      if (message.notification != null) {
-        customDialog(context, message.data['title'].toString(),
-            message.data['body'].toString());
-      }
-    });
+    subForeground = FCM.onMessage.listen((RemoteMessage message) {});
   }
 
   @override
